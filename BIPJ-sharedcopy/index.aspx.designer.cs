@@ -11,7 +11,7 @@ namespace BIPJ_sharedcopy
 {
 
 
-    public partial class about
+    public partial class index
     {
     }
 }
