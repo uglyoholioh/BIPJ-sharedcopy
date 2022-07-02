@@ -1,8 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/navbar.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="BIPJ_sharedcopy.index" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="indexold.aspx.cs" Inherits="BIPJ_sharedcopy.index" %>
+
+<!DOCTYPE html>
 <html lang="en">
 
 
@@ -658,5 +656,3 @@
 </body>
 
 </html>
-
-</asp:Content>
