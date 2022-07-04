@@ -107,6 +107,10 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Aboutold.aspx" />
+    <Content Include="App_Data\users.mdf" />
+    <Content Include="App_Data\users_log.ldf">
+      <DependentUpon>users.mdf</DependentUpon>
+    </Content>
     <Content Include="assets\css\main.css" />
     <Content Include="assets\img\about.jpg" />
     <Content Include="assets\img\apple-touch-icon.png" />
@@ -136,6 +140,7 @@
     <Content Include="assets\img\testimonials\testimonials-4.jpg" />
     <Content Include="assets\img\testimonials\testimonials-5.jpg" />
     <Content Include="assets\img\trucking-service.jpg" />
+    <Content Include="assets\img\undraw_remotely_2j6y.svg" />
     <Content Include="assets\img\warehousing-service.jpg" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\vendor\aos\aos.css" />
@@ -199,8 +204,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\fontstyle.css" />
+    <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -218,6 +227,7 @@
     <Content Include="home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="indexold.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
     <Content Include="assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
@@ -253,6 +263,7 @@
     <Content Include="assets\vendor\fontawesome-free\webfonts\fa-v4compatibility.ttf" />
     <Content Include="assets\vendor\fontawesome-free\webfonts\fa-v4compatibility.woff2" />
     <Content Include="navbar.Master" />
+    <Content Include="css\style.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -343,6 +354,13 @@
     <Compile Include="indexold.aspx.designer.cs">
       <DependentUpon>indexold.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="navbar.Master.cs">
       <DependentUpon>navbar.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -365,6 +383,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="user.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -380,9 +399,7 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
