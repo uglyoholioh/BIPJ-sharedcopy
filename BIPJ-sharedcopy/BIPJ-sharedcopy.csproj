@@ -204,12 +204,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="creditcard.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\fontstyle.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="debitcard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -228,6 +230,7 @@
     <Content Include="index.aspx" />
     <Content Include="indexold.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="staking.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
     <Content Include="assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
@@ -323,6 +326,20 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="creditcard.aspx.cs">
+      <DependentUpon>creditcard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="creditcard.aspx.designer.cs">
+      <DependentUpon>creditcard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="debitcard.aspx.cs">
+      <DependentUpon>debitcard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debitcard.aspx.designer.cs">
+      <DependentUpon>debitcard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -382,6 +399,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="staking.aspx.cs">
+      <DependentUpon>staking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="staking.aspx.designer.cs">
+      <DependentUpon>staking.aspx</DependentUpon>
     </Compile>
     <Compile Include="user.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
