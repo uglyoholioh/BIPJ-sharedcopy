@@ -204,12 +204,14 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="creditcard.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\fontstyle.css" />
     <Content Include="css\owl.carousel.min.css" />
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="debitcard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -324,6 +326,20 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="creditcard.aspx.cs">
+      <DependentUpon>creditcard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="creditcard.aspx.designer.cs">
+      <DependentUpon>creditcard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="debitcard.aspx.cs">
+      <DependentUpon>debitcard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debitcard.aspx.designer.cs">
+      <DependentUpon>debitcard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,6 +407,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="staking.aspx.cs">
+      <DependentUpon>staking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="staking.aspx.designer.cs">
+      <DependentUpon>staking.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -450,7 +473,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
