@@ -10,7 +10,7 @@
 
 namespace BIPJ_sharedcopy
 {
-    public partial class staking
+    public partial class stakingnew
     {
     }
 }

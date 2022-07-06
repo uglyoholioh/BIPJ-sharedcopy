@@ -231,6 +231,7 @@
     <Content Include="indexold.aspx" />
     <Content Include="login.aspx" />
     <Content Include="signup.aspx" />
+    <Content Include="stakingnew.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
     <Content Include="assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
@@ -407,12 +408,12 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="staking.aspx.cs">
-      <DependentUpon>staking.aspx</DependentUpon>
+    <Compile Include="stakingnew.aspx.cs">
+      <DependentUpon>stakingnew.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="staking.aspx.designer.cs">
-      <DependentUpon>staking.aspx</DependentUpon>
+    <Compile Include="stakingnew.aspx.designer.cs">
+      <DependentUpon>stakingnew.aspx</DependentUpon>
     </Compile>
     <Compile Include="user.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

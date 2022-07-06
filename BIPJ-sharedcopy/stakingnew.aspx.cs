@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BIPJ_sharedcopy
 {
-    public partial class staking : System.Web.UI.Page
+    public partial class stakingnew : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
