@@ -10,7 +10,6 @@ namespace BIPJ_sharedcopy
     public class user
     {
         string _connStr = ConfigurationManager.ConnectionStrings["usersContext"].ConnectionString;
-        private string _userID = null;
         private string _email = string.Empty;
         private string _password = string.Empty;
 
@@ -29,13 +28,13 @@ namespace BIPJ_sharedcopy
             get { return _password; }
             set { _password = value; }
         }
-        public user getUser(string userID) {
+        public user getUser(string email) {
             user userDetail = null;
-            string email, password;
-            string queryStr = "SELECT * FROM Users where userID = @userID";
+            string password;
+            string queryStr = "SELECT * FROM Users where email = @email";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
-            cmd.Parameters.AddWithValue("@userID", userID);
+            cmd.Parameters.AddWithValue("@email", email);
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
 
@@ -44,7 +43,6 @@ namespace BIPJ_sharedcopy
                 email = dr["email"].ToString();
                 password = dr["password"].ToString();
                 userDetail = new user(email, password);
-
             }
             else
             {

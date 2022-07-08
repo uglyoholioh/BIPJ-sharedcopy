@@ -29,6 +29,8 @@ namespace BIPJ_sharedcopy
             if (dr.Read())
             {
                 Response.Write("<script>alert('Log in successful');</script>");
+                userobj = userobj.getUser(tb_email.Text);
+                Session["email"] = userobj.email;
                 Response.Redirect("index.aspx");
             }
             else
