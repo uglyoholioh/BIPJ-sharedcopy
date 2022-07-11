@@ -12,17 +12,23 @@ using System.Web.UI.WebControls;
 
 namespace BIPJ_sharedcopy
 {
-
     public partial class wallet : System.Web.UI.Page
     {
         HttpContext context = HttpContext.Current;
+        decimal BTCbal = 0;
         DateTime origindate = new DateTime(1970, 1, 1, 0, 0, 0);
         protected void Page_Load(object sender, EventArgs e)
         {
+            //session email for testing
+            Session["email"] = "user1@gmail.com";
             string email = (string)(context.Session["email"]);
             List<balances> balList = new List<balances>();
             balances balobj = new balances();
             balList = balobj.getBalancesAll(email);
+            foreach (balances bal in balList)
+            {
+                BTCbal = bal.balance;
+            }
             
             if (!IsPostBack)
             {
@@ -32,12 +38,12 @@ namespace BIPJ_sharedcopy
         protected void changeText()
         {
             cryptoprices placeh = this.Prices();
-            lbl_third.Text = placeh.USD.ToString();
+            decimal BTCpricebal = Convert.ToDecimal(placeh.USD) * BTCbal;
             string hprice = this.hPrices();
             var jsonprice = new historicalprice();
             jsonprice = JsonConvert.DeserializeObject<historicalprice>(hprice);
 
-            this.lbl_first.Text = jsonprice.BTC.USD;
+
         }
         public class cryptoprices { public string USD { get; set; }
             public string JPY { get; set; }
@@ -128,6 +134,11 @@ namespace BIPJ_sharedcopy
             }
 
             return hresult;
+        }
+
+        protected void DataList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

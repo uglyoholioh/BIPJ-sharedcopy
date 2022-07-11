@@ -15,21 +15,21 @@ namespace BIPJ_sharedcopy
     {
 
         /// <summary>
-        /// lbl_first control.
+        /// DataList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_first;
+        protected global::System.Web.UI.WebControls.DataList DataList1;
 
         /// <summary>
-        /// lbl_third control.
+        /// balanceDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_third;
+        protected global::System.Web.UI.WebControls.SqlDataSource balanceDS;
     }
 }
