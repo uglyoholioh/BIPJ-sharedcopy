@@ -216,6 +216,7 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
     <Content Include="debitcard.aspx" />
+    <Content Include="debitcardDetails.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -231,6 +232,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="home.aspx" />
+    <Content Include="Images\indigo.png" />
+    <Content Include="Images\midnight.png" />
+    <Content Include="Images\obsidian.png" />
     <Content Include="index.aspx" />
     <Content Include="indexold.aspx" />
     <Content Include="login.aspx" />
@@ -346,6 +350,13 @@
       <DependentUpon>debitcard.aspx</DependentUpon>
     </Compile>
     <Compile Include="debitcard.cs" />
+    <Compile Include="debitcardDetails.aspx.cs">
+      <DependentUpon>debitcardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debitcardDetails.aspx.designer.cs">
+      <DependentUpon>debitcardDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

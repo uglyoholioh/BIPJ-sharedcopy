@@ -37,7 +37,7 @@ namespace BIPJ_sharedcopy
 
             // Redirect to next page, with the Product Id added to the URL,
             // e.g. ProductDetails.aspx?ProdID=1
-            Response.Redirect("debitcard.aspx?cardID=" + cardID);
+            Response.Redirect("debitcardDetails.aspx?cardID=" + cardID);
         }
 
     }
