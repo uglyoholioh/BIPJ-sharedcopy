@@ -107,9 +107,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Aboutold.aspx" />
-    <Content Include="App_Data\Cards.mdf" />
-    <Content Include="App_Data\Cards_log.ldf">
-      <DependentUpon>Cards.mdf</DependentUpon>
+    <Content Include="App_Data\debitcard.mdf" />
+    <Content Include="App_Data\debitcard_log.ldf">
+      <DependentUpon>debitcard.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\users.mdf" />
     <Content Include="App_Data\users_log.ldf">
@@ -345,6 +345,7 @@
     <Compile Include="debitcard.aspx.designer.cs">
       <DependentUpon>debitcard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="debitcard.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
