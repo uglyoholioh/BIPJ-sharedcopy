@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace BIPJsharedcopy
+namespace BIPJ_sharedcopy
 {
     public class Debit_Card
     {
