@@ -26,5 +26,9 @@ namespace BIPJ_sharedcopy
 
         }
 
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("debitcard.aspx");
+        }
     }
 }

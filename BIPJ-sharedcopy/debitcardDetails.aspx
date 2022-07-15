@@ -47,6 +47,9 @@
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Btn_Add" runat="server" Text="Add to Cart" />
+                &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btn_back" runat="server" Text="Back" OnClick="btn_back_Click" />
+                    <br />
                 </td>
             </tr>
         </table>
