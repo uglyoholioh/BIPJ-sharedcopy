@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 
 namespace BIPJ_sharedcopy
 {
@@ -14,7 +10,8 @@ namespace BIPJ_sharedcopy
         private string _password = string.Empty;
 
         public user() { }
-        public user(string email, string password) {
+        public user(string email, string password)
+        {
             _email = email;
             _password = password;
         }
@@ -28,7 +25,8 @@ namespace BIPJ_sharedcopy
             get { return _password; }
             set { _password = value; }
         }
-        public user getUser(string email) {
+        public user getUser(string email)
+        {
             user userDetail = null;
             string password;
             string queryStr = "SELECT * FROM Users where email = @email";
@@ -54,9 +52,10 @@ namespace BIPJ_sharedcopy
             return userDetail;
 
         }
-        public int createUser(string email, string password) {
+        public int createUser(string email, string password)
+        {
             int result = 0;
-            string queryStr = "INSERT INTO Users(email,password)"+ "values (@email, @password)";
+            string queryStr = "INSERT INTO Users(email,password)" + "values (@email, @password)";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             conn.Open();

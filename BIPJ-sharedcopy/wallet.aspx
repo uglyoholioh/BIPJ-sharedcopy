@@ -57,7 +57,7 @@
 
 
             <!-- Revenue Card -->
-                                <asp:DataList ID="DataList1" runat="server" DataKeyField="Id" DataSourceID="balanceDS" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns="3" RepeatDirection="Horizontal">
+                                <asp:DataList ID="DataList1" runat="server" DataKeyField="crypto" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns="3" RepeatDirection="Horizontal">
                       <ItemTemplate>
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card" style="width:300px">
@@ -80,11 +80,16 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                        <img src="https://assets.coincap.io/assets/icons/<%# Eval("crypto") %>@2x.png" />
+                        <img src="https://assets.coincap.io/assets/icons/<%# Eval("logo") %>@2x.png" />
                     </div>
-                    <div class="ps-3">
+
+                    <div class="ps-3" id="tokendiv">
                       <h6>
-                          <asp:Label ID="lbl_bal" runat="server"><%# Eval("balance") %></asp:Label>
+                          <asp:Label ID="lbl_bal" style="font-size:25px;" runat="server"><%# Eval("tokenamt") %>&nbsp<%# Eval("crypto") %></asp:Label>
+                          <br />                      
+
+                                                    <asp:Label ID="lbl_total"  runat="server" style="font-size:25px;">$<%# Eval("total") %></asp:Label>
+
 </h6>
                       <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
@@ -98,49 +103,17 @@
             </div><!-- End Revenue Card -->
                                   </ItemTemplate>
                   </asp:DataList>
+              <!-- HTML !-->
+              <asp:Button ID="btn_Deposit" runat="server" Text="Make a deposit" style="background-color:darkblue;color:white;" OnClick="btn_Deposit_Click" />
 
-                  <asp:SqlDataSource ID="balanceDS" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [Balances] WHERE ([email] = @email)">
+                  <asp:SqlDataSource ID="balanceDS" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [Transactions] WHERE ([email] = @email)">
                       <SelectParameters>
                           <asp:SessionParameter Name="email" SessionField="email" Type="String" />
                       </SelectParameters>
+
                   </asp:SqlDataSource>
 
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
 
-              <div class="card info-card customers-card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter<h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                  <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
-                    </div>
-                    <div class="ps-3">
-                      <h6>1244</h6>
-                      <span class="text-danger small pt-1 fw-bold">12%</span> <span class="text-muted small pt-2 ps-1">decrease</span>
-
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-
-            </div><!-- End Customers Card -->
 
             <!-- Reports -->
             <div class="col-12">
@@ -225,6 +198,9 @@
             </div><!-- End Reports -->
 
             <!-- Recent Sales -->
+                                                      <asp:DataList ID="DataList2" runat="server" DataKeyField="txID" DataSourceID="balanceDS">
+<HeaderTemplate>
+
             <div class="col-12">
               <div class="card recent-sales overflow-auto">
 
@@ -242,61 +218,46 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Recent Transactions <span>| Today</span></h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Asset</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Time</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
-                        <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
+
+                    <tbody></HeaderTemplate>
+                                                                                               <ItemTemplate>
+                                            
+                                              <tr>
+
+                                    
+ 
+
+                        <th scope="row"><a href="#">#<%# Eval("txID") %></a></th>
+                        <td id="decimal"><%# Eval("amount") %></td>
+                        <td><a href="#" class="text-primary"><%# Eval("time") %></a></td>
+                        <td><%# Eval("type") %></td>
+                        <td><span class="badge bg-success"><%# Eval("status") %></span></td>
+                                                                                               
                       </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
-                        <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
-                        <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
-                      </tr>
-                      <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
-                        <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
-                      </tr>
+                              </ItemTemplate>
+                                          <FooterTemplate>
+
                     </tbody>
                   </table>
 
                 </div>
 
               </div>
-            </div><!-- End Recent Sales -->
+            </div></FooterTemplate>
+          </asp:DataList>   
+                  <!-- End Recent Sales -->
 
             <!-- Top Selling -->
             <div class="col-12">
@@ -713,8 +674,12 @@
 
               document.getElementById("firstcurrency").innerHTML = time +
                   "<br /><br />" + usdValue
-          }
+              ipt >      }
+          var a = document.getElementById("decimal").innerHTML;
+          a = (Math.round(num*100/100)).toFixed(2);
+          document.getElementById("decimal").innerHTML = a;
       </script>
+
 
 </body>
 

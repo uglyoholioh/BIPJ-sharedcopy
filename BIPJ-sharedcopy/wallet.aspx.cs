@@ -1,14 +1,13 @@
 ﻿using Newtonsoft.Json;
+using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-
+using System.Web.UI.HtmlControls;
 
 namespace BIPJ_sharedcopy
 {
@@ -19,6 +18,12 @@ namespace BIPJ_sharedcopy
         DateTime origindate = new DateTime(1970, 1, 1, 0, 0, 0);
         protected void Page_Load(object sender, EventArgs e)
         {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt.Columns.Add("crypto");
+            dt.Columns.Add("logo");
+            dt.Columns.Add("tokenamt");
+            dt.Columns.Add("total");
             //session email for testing
             Session["email"] = "user1@gmail.com";
             string email = (string)(context.Session["email"]);
@@ -27,47 +32,94 @@ namespace BIPJ_sharedcopy
             balList = balobj.getBalancesAll(email);
             foreach (balances bal in balList)
             {
+                DataRow dr = dt.NewRow();
+                dr["crypto"] = bal.crypto;
+                dr["logo"] = bal.crypto.ToLower();
+                dr["tokenamt"] = bal.balance.ToString("G29");
                 BTCbal = bal.balance;
+                cryptoprices dc = this.Prices(bal.crypto);
+                dr["total"] = (bal.balance * Convert.ToDecimal(dc.USD)).ToString("F");
+                dt.Rows.Add(dr);
             }
-            
+            DataList1.DataSource = dt;
+            DataList1.DataBind();
+
+
+
             if (!IsPostBack)
             {
                 changeText();
             }
         }
+        public static Control FindControlRecursive(Control rootControl, string id)
+        {
+            if (rootControl != null)
+            {
+                if (rootControl.ID == id)
+                {
+                    return rootControl;
+                }
+
+                for (int i = 0; i < rootControl.Controls.Count; i++)
+                {
+                    Control child;
+
+                    if ((child = FindControlRecursive(rootControl.Controls[i], id)) != null)
+                    {
+                        return child;
+                    }
+                }
+            }
+
+            return null;
+        }
         protected void changeText()
         {
-            cryptoprices placeh = this.Prices();
-            decimal BTCpricebal = Convert.ToDecimal(placeh.USD) * BTCbal;
-            string hprice = this.hPrices();
-            var jsonprice = new historicalprice();
-            jsonprice = JsonConvert.DeserializeObject<historicalprice>(hprice);
+            //cryptoprices placeh = this.Prices();
+            //decimal BTCpricebal = Convert.ToDecimal(placeh.USD) * BTCbal;
+            //string hprice = this.hPrices();
+            //var jsonprice = new historicalprice();
+            //jsonprice = JsonConvert.DeserializeObject<historicalprice>(hprice);
 
 
         }
-        public class cryptoprices { public string USD { get; set; }
+        public class cryptoprices
+        {
+            public string USD { get; set; }
             public string JPY { get; set; }
             public string EUR { get; set; }
 
         }
-        public class historicalprice {
+        public class historicalprice
+        {
 
-            public BTC BTC { get; set;}
+            public BTC BTC { get; set; }
 
 
         }
-        public class BTC {
+        public class BTC
+        {
             public string USD { get; set; }
         }
+        public class data{
+            public item item { get; set; }
+        }
+        public class item
+        {
+            public string address { get; set; }
+            public int createdTimestamp { get; set; }
+            public string label { get; set; }
+
+        }
 
 
-        public cryptoprices Prices()
+        public cryptoprices Prices(string cryptoname)
         {
             var crypto = new cryptoprices();
             var result = string.Empty;
             try
             {
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,JPY,EUR");
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://min-api.cryptocompare.com/data/price?fsym=" + cryptoname + "&tsyms=USD,JPY,EUR");
                 httpWebRequest.Method = "Get";
                 httpWebRequest.KeepAlive = false;
                 httpWebRequest.Accept = "text/json";
@@ -96,6 +148,37 @@ namespace BIPJ_sharedcopy
             }
 
             return crypto;
+        }
+        public data depositAddress()
+        {
+            var address = string.Empty;
+            data addressdata = null;
+            var APIkey = "ae57c39bb8e962e6843a0f671a1244a4682e208a";
+            try
+            {
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(" https://rest.cryptoapis.io/v2/wallet-as-a-service/wallets/"+APIkey+"/bitcoin/testnet/addresses?context=yourExampleString");
+                httpWebRequest.Method = "Get";
+                httpWebRequest.KeepAlive = false;
+                httpWebRequest.Accept = "text/json";
+
+                httpWebRequest.ContentType = "application/json";
+
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+
+                {
+
+                    address = streamReader.ReadToEnd();
+                    addressdata = JsonConvert.DeserializeObject<data>(address);
+
+                }
+            }
+            catch(WebException ex)
+            {
+                address = ex.Message;
+            }
+            return addressdata;
         }
         public string hPrices()
         {
@@ -140,7 +223,12 @@ namespace BIPJ_sharedcopy
         {
 
         }
+
+        protected void btn_Deposit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("deposit.aspx");
+        }
     }
 
-    }
+}
 

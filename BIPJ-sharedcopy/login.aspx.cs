@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace BIPJ_sharedcopy
 {
@@ -23,7 +18,7 @@ namespace BIPJ_sharedcopy
             string queryStr = "select * from users where email = @email and password = @password";
             SqlCommand cmd = new SqlCommand(queryStr, con);
             cmd.Parameters.AddWithValue("@email", tb_email.Text);
-            cmd.Parameters.AddWithValue("@password",tb_password.Text);
+            cmd.Parameters.AddWithValue("@password", tb_password.Text);
             con.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read())

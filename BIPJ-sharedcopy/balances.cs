@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 namespace BIPJ_sharedcopy
 {
     public class balances
@@ -14,7 +12,8 @@ namespace BIPJ_sharedcopy
         private string _crypto = string.Empty;
 
         public balances() { }
-        public balances(string email, decimal balance, string crypto) {
+        public balances(string email, decimal balance, string crypto)
+        {
             _email = email;
             _balance = balance;
             _crypto = crypto;
@@ -33,6 +32,24 @@ namespace BIPJ_sharedcopy
         {
             get { return _crypto; }
             set { _crypto = value; }
+        }
+        public int updateBalance(string email, decimal balance, string crypto)
+        {
+            string logo = crypto.ToLower();
+            int result = 0;
+            balances updateBal = new balances(email, balance, crypto);
+            string queryStr = "IF EXISTS(SELECT * From Balances where email = @email and crypto = @crypto) begin UPDATE Balances SET balance = balance + @balance where email = @email and crypto = @crypto end else begin INSERT into Balances(email,balance,crypto,logo) values (@email,@balance,@crypto,@logo) end";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@balance", balance);
+            cmd.Parameters.AddWithValue("@crypto", crypto);
+            cmd.Parameters.AddWithValue("@logo", logo);
+            conn.Open();
+            result += cmd.ExecuteNonQuery();
+            conn.Close();
+            return result;
+        
         }
         public List<balances> getBalancesAll(string email)
         {
