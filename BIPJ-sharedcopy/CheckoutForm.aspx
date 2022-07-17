@@ -148,7 +148,7 @@
 
               createOrder: function (data, actions) {
                   return actions.order.create({
-                      purchase_units: [{ "description": "Clothing Bundle", "amount": { "currency_code": "SGD", "value": 28.5, "breakdown": { "item_total": { "currency_code": "SGD", "value": 25 }, "shipping": { "currency_code": "SGD", "value": 3 }, "tax_total": { "currency_code": "SGD", "value": 0.5 } } } }]
+                      purchase_units: [{ "description": "Midnight Blue Debit Card", "amount": { "currency_code": "SGD", "value": 32.0, "breakdown": { "item_total": { "currency_code": "SGD", "value": 32 }, "shipping": { "currency_code": "SGD", "value": 0 }, "tax_total": { "currency_code": "SGD", "value": 0 } } } }]
                   });
               },
 

@@ -14,21 +14,21 @@ namespace BIPJ_sharedcopy
 
         }
 
-        protected void Button3_Click1(object sender, EventArgs e)
-        {
-            DataList.Visible = true;
-        }
+       // protected void Button3_Click1(object sender, EventArgs e)
+        //{
+            //DataList.Visible = true;
+        //}
 
-        protected void Button5_Click(object sender, EventArgs e)
-        {
-            if (TextBox1.Text != "")
-            {
-                DataList.DataSourceID = null;
-                DataList.DataSource = SqlDataSource2;
-                DataList.DataBind();
+        //protected void Search_Click(object sender, EventArgs e)
+        //{
+            //if (TextBox1.Text != "")
+            //{
+                //DataList.DataSourceID = null;
+                //DataList.DataSource = SqlDataSource2;
+                //DataList.DataBind();
 
-            }
-        }
+            //}
+        //}
 
         protected void DataList1_ItemCommand1(object source, DataListCommandEventArgs e)
         {
