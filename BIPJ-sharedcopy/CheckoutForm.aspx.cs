@@ -39,10 +39,5 @@ namespace BIPJ_sharedcopy
 
             Response.Redirect("ThankyouForm.aspx");
         }
-
-        protected void btn_Back_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("debitCardDetails.aspx");
-        }
     }
 }

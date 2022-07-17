@@ -150,13 +150,13 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.Label lbl_TotalPrice;
 
         /// <summary>
-        /// btn_Back control.
+        /// btn_ConfirmPurchase control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Back;
+        protected global::System.Web.UI.WebControls.Button btn_ConfirmPurchase;
 
         /// <summary>
         /// vs_Checkout control.

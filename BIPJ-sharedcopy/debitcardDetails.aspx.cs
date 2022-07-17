@@ -26,14 +26,14 @@ namespace BIPJ_sharedcopy
 
         }
 
-        protected void btn_back_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("debitcard.aspx");
-        }
-
         protected void Btn_Add_Click(object sender, EventArgs e)
         {
             Response.Redirect("CheckoutForm.aspx");
+        }
+
+        protected void btn_back_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("debitcard.aspx");
         }
     }
 }

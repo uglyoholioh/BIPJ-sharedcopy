@@ -201,7 +201,7 @@
             <td class="auto-style11">
                 <br />
             &nbsp;
-                <asp:Button ID="btn_Back" OnClick="btn_Back_Click" runat="server" Text="Confirm Purchase" Width="182px" /> &nbsp; &nbsp; 
+                <asp:Button ID="btn_ConfirmPurchase" OnClick="btn_ConfirmPurchase_Click" runat="server" Text="Confirm Purchase" Width="182px" /> &nbsp; &nbsp; 
                 &nbsp; &nbsp;&nbsp;&nbsp;
                 <br />
                 <asp:ValidationSummary ID="vs_Checkout" runat="server" ShowMessageBox="True" />

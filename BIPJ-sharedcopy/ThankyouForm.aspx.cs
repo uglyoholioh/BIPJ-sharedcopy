@@ -29,7 +29,7 @@ namespace BIPJ_sharedcopy
 
         protected void btn_Confirm_Click(object sender, EventArgs e)
         {
-            Response.Redirect("home.aspx");
+            Response.Redirect("index.aspx");
         }
     }
 }
