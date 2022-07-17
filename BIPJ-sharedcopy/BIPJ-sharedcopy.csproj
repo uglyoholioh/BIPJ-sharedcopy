@@ -204,6 +204,7 @@
     <Content Include="assets\vendor\purecounter\purecounter_vanilla.js" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="cards.aspx" />
     <Content Include="cards.html" />
     <Content Include="CheckoutForm.aspx" />
     <Content Include="Contact.aspx" />
@@ -218,7 +219,9 @@
     <Content Include="css\sb-admin-2.css" />
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="debitcard2.aspx" />
     <Content Include="debitcard.aspx" />
+    <Content Include="debitcardDetails2.aspx" />
     <Content Include="debitcardDetails.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -237,6 +240,7 @@
     <Content Include="home.aspx" />
     <Content Include="Images\chat %281%29.png" />
     <Content Include="Images\demiswap.png" />
+    <Content Include="Images\demiswap1.png" />
     <Content Include="Images\indigo.png" />
     <Content Include="Images\midnight.png" />
     <Content Include="Images\obsidian.png" />
@@ -335,6 +339,13 @@
       <DependentUpon>Aboutold.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="cards.aspx.cs">
+      <DependentUpon>cards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards.aspx.designer.cs">
+      <DependentUpon>cards.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CheckoutForm.aspx.cs">
       <DependentUpon>CheckoutForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -349,6 +360,14 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="debitcard2.aspx.cs">
+      <DependentUpon>debitcard2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debitcard2.aspx.designer.cs">
+      <DependentUpon>debitcard2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="debitcard.cs" />
     <Compile Include="debitcard.aspx.cs">
       <DependentUpon>debitcard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -356,7 +375,13 @@
     <Compile Include="debitcard.aspx.designer.cs">
       <DependentUpon>debitcard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="debitcard.cs" />
+    <Compile Include="debitcardDetails2.aspx.cs">
+      <DependentUpon>debitcardDetails2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debitcardDetails2.aspx.designer.cs">
+      <DependentUpon>debitcardDetails2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="debitcardDetails.aspx.cs">
       <DependentUpon>debitcardDetails.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

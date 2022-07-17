@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BIPJ_sharedcopy
 {
-    public partial class debitcardDetails : System.Web.UI.Page
+    public partial class debitcardDetails1 : System.Web.UI.Page
     {
         Debit_Card card = null;
         protected void Page_Load(object sender, EventArgs e)

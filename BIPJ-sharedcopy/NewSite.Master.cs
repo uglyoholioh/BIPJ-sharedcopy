@@ -13,5 +13,9 @@ namespace BIPJ_sharedcopy
         {
 
         }
+        protected void btn_Chat(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("#");
+        }
     }
 }

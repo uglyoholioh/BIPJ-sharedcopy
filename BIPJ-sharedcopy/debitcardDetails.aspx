@@ -1,25 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="debitcardDetails.aspx.cs" Inherits="BIPJ_sharedcopy.debitcardDetails" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewSite.Master" AutoEventWireup="true" CodeBehind="debitcardDetails.aspx.cs" Inherits="BIPJ_sharedcopy.debitcardDetails1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
-        .auto-style1 {
-            width: 50%;
-        }
-        .auto-style2 {
-            height: 31px;
-        }
-        .auto-style3 {
-            width: 87px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <h2>
+    .auto-style1 {
+        width: 50%;
+     }
+    .auto-style2 {
+        height: 31px;
+     }
+    .auto-style3 {
+        width: 87px;
+     }
+ </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>
             Debit Card Details</h2>
         <table class="auto-style1">
             <tr>
@@ -53,6 +47,4 @@
                 </td>
             </tr>
         </table>
-    </form>
-</body>
-</html>
+</asp:Content>

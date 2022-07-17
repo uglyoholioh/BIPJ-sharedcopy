@@ -39,12 +39,12 @@
         <ul>
           <li><a href="index.aspx">Home</a></li>
           <li><a href="about.aspx">About</a></li>
-          <li><a href="debitcard.aspx">Cards</a></li>
+          <li><a href="cards.aspx">Cards</a></li>
           <li><a href="pricing.html">Pricing</a></li>
           <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 2</a></li>
+              <li><a href="debitcard.aspx">Card Registration</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
             </ul>

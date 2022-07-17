@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace BIPJ_sharedcopy
 {
-    public partial class debitcard : System.Web.UI.Page
+    public partial class debitcard1 : System.Web.UI.Page
     {
         Debit_Card aDebit_Card = new Debit_Card();
         protected void Page_Load(object sender, EventArgs e)
@@ -17,7 +17,6 @@ namespace BIPJ_sharedcopy
                 bind();
             }
         }
-
         protected void bind()
         {
             List<Debit_Card> cardList = new List<Debit_Card>();
@@ -25,7 +24,6 @@ namespace BIPJ_sharedcopy
             gvCard.DataSource = cardList;
             gvCard.DataBind();
         }
-
         protected void gvCard_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the currently selected row 
@@ -39,6 +37,5 @@ namespace BIPJ_sharedcopy
             // e.g. ProductDetails.aspx?ProdID=1
             Response.Redirect("debitcardDetails.aspx?cardID=" + cardID);
         }
-
     }
 }
