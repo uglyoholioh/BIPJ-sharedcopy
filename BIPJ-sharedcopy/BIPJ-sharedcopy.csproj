@@ -475,6 +475,7 @@
     <Compile Include="staking.aspx.designer.cs">
       <DependentUpon>staking.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Transaction.cs" />
     <Compile Include="user.cs" />
     <Compile Include="balances.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

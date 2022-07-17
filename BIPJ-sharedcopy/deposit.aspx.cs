@@ -110,34 +110,6 @@ namespace BIPJ_sharedcopy
 
         protected void ddl_cryptos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var crypto = ddl_cryptos.SelectedValue;
-            var walletaddress = "62cf854e5f15ac0007749f4d";
-            var postRequest = (HttpWebRequest)WebRequest.Create("https://rest.cryptoapis.io/v2/wallet-as-a-service/wallets/" + walletaddress + "/"+crypto+"/testnet/addresses?context=newwwallet");
-            postRequest.Method = "Post";
-            postRequest.ContentType = "application/json";
-            postRequest.Headers.Add("X-API-Key", "ae57c39bb8e962e6843a0f671a1244a4682e208a");
-            postRequest.KeepAlive = false;
-            postRequest.Credentials = CredentialCache.DefaultCredentials;
-            string postData = "{\"context\":\"yourExampleString\",\"data\":{\"item\":{\"label\":\"yourLabelStringHere\"}}}";
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-            postRequest.ContentLength = byteArray.Length;
-            Stream dataStream = postRequest.GetRequestStream();
-            dataStream.Write(byteArray, 0, byteArray.Length); ;
-            dataStream.Close();
-            WebResponse response = postRequest.GetResponse();
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            Console.WriteLine(responseFromServer);
-            reader.Close();
-            dataStream.Close();
-            response.Close();
-            Root newAddress = new Root();
-            newAddress = JsonConvert.DeserializeObject<Root>(responseFromServer);
-            lbl_Address.Text = newAddress.data.item.address;
-            Root balanceRoot = this.getBalance(ddl_cryptos.SelectedValue, newAddress.data.item.address);
-            lbl_Received.Text = balanceRoot.data.item.confirmedBalance.amount +" "+ balanceRoot.data.item.confirmedBalance.unit;
 
         }
 
@@ -184,19 +156,65 @@ namespace BIPJ_sharedcopy
 
         protected void btn_Confirm_Click(object sender, EventArgs e)
         {
+            int result = 0;
+            Transaction transaction = new Transaction();
             try {
                 Root balanceRoot = this.getBalance(ddl_cryptos.SelectedValue, lbl_Address.Text);
                 balances updateBal = new balances();
                 string email = (string)(context.Session["email"]);
                 updateBal.updateBalance(email, Convert.ToDecimal(balanceRoot.data.item.confirmedBalance.amount), balanceRoot.data.item.confirmedBalance.unit);
-                balanceRoot.data.item.confirmedBalance.amount = "0";
-                Response.Redirect("wallet.aspx");
+                if (balanceRoot.data.item.confirmedBalance.amount != "0")
+                {
+                    result = transaction.createTransaction(DateTime.Now, "deposit", balanceRoot.data.item.confirmedBalance.unit, Convert.ToDecimal(balanceRoot.data.item.confirmedBalance.amount), "approved", email);
+                    balanceRoot.data.item.confirmedBalance.amount = "0";
+                    Response.Redirect("wallet.aspx");
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                Response.Redirect("wallet.aspx");
-
+                lbl_Received.Text = ex.ToString();
             }
+        }
+
+        protected void btn_Generate_Click(object sender, EventArgs e)
+        {
+            var crypto = ddl_cryptos.SelectedValue;
+            var walletaddress = "62cf854e5f15ac0007749f4d";
+            var postRequest = (HttpWebRequest)WebRequest.Create("https://rest.cryptoapis.io/v2/wallet-as-a-service/wallets/" + walletaddress + "/" + crypto + "/testnet/addresses?context=newwwallet");
+            postRequest.Method = "Post";
+            postRequest.ContentType = "application/json";
+            postRequest.Headers.Add("X-API-Key", "ae57c39bb8e962e6843a0f671a1244a4682e208a");
+            postRequest.KeepAlive = false;
+            postRequest.Credentials = CredentialCache.DefaultCredentials;
+            string postData = "{\"context\":\"yourExampleString\",\"data\":{\"item\":{\"label\":\"yourLabelStringHere\"}}}";
+            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+            postRequest.ContentLength = byteArray.Length;
+            Stream dataStream = postRequest.GetRequestStream();
+            dataStream.Write(byteArray, 0, byteArray.Length); ;
+            dataStream.Close();
+            WebResponse response = postRequest.GetResponse();
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            string responseFromServer = reader.ReadToEnd();
+            Console.WriteLine(responseFromServer);
+            reader.Close();
+            dataStream.Close();
+            response.Close();
+            Root newAddress = new Root();
+            newAddress = JsonConvert.DeserializeObject<Root>(responseFromServer);
+            lbl_Address.Text = newAddress.data.item.address;
+            Root balanceRoot = this.getBalance(ddl_cryptos.SelectedValue, newAddress.data.item.address);
+            lbl_Received.Text = balanceRoot.data.item.confirmedBalance.amount + " " + balanceRoot.data.item.confirmedBalance.unit;
+
+        }
+
+        protected void btn_test_Click(object sender, EventArgs e)
+        {
+            int result = 0;
+            Transaction transaction = new Transaction();
+            string email = (string)(context.Session["email"]);
+            result = transaction.createTransaction(DateTime.Now, "deposit", "BTC", Convert.ToDecimal(1.1), "approved", email);
         }
     }
 }

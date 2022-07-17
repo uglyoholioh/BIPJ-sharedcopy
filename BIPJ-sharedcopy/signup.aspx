@@ -42,7 +42,8 @@
                 <br />
                   <asp:TextBox ID="tb_confirm" placeholder="Confirm Password" style="font-size:12px;" runat="server" type="password" class="form-control"></asp:TextBox>
 
-              </div>
+              </div>                  <asp:Label ID="lbl_Error" runat="server" style="color:red"></asp:Label>
+                 
 
               
                 <asp:Button ID="btn_Signup" runat="server" class="btn btn-block btn-primary" Text="Sign Up" OnClick="btn_Signup_Click"/>

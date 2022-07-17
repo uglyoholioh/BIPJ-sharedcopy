@@ -33,13 +33,13 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.Button btn_Deposit;
 
         /// <summary>
-        /// balanceDS control.
+        /// txDS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource balanceDS;
+        protected global::System.Web.UI.WebControls.SqlDataSource txDS;
 
         /// <summary>
         /// DataList2 control.

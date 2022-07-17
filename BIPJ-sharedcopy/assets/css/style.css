@@ -815,6 +815,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Top Selling */
 .dashboard .top-selling {
   font-size: 14px;
+    top: -19px;
+    left: 0px;
 }
 .dashboard .top-selling .table thead {
   background: #f6f6fe;

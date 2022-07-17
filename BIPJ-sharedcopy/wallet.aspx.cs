@@ -16,6 +16,7 @@ namespace BIPJ_sharedcopy
         HttpContext context = HttpContext.Current;
         decimal BTCbal = 0;
         DateTime origindate = new DateTime(1970, 1, 1, 0, 0, 0);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -43,6 +44,30 @@ namespace BIPJ_sharedcopy
             }
             DataList1.DataSource = dt;
             DataList1.DataBind();
+            DataTable txdt = new DataTable();
+            txdt.Clear();
+            txdt.Columns.Add("txID");
+            txdt.Columns.Add("amount");
+            txdt.Columns.Add("time");
+            txdt.Columns.Add("type");
+            txdt.Columns.Add("asset");
+            txdt.Columns.Add("status");
+            List<Transaction> txlist = new List<Transaction>();
+            Transaction txobj = new Transaction();
+            txlist = txobj.getTxAll(email);
+            foreach (Transaction tx in txlist)
+            {
+                DataRow dr = txdt.NewRow();
+                dr["txID"] = tx.txID;
+                dr["amount"] = tx.amount.ToString("G29");
+                dr["time"] = tx.time.ToString();
+                dr["type"] = tx.type;
+                dr["asset"] = tx.asset;
+                dr["status"] = tx.status;
+                txdt.Rows.Add(dr);
+                
+            }
+
 
 
 
@@ -228,6 +253,59 @@ namespace BIPJ_sharedcopy
         {
             Response.Redirect("deposit.aspx");
         }
+
+        protected void lb_txid_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='"+email+"' ORDER BY txID DESC";
+        }
+        protected void lb_txid_asc_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY txID ASC";
+        }
+
+        protected void lb_amount_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY amount DESC";
+        }
+        protected void lb_amount_asc_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY amount ASC";
+        }
+        protected void lb_time_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY txID ASC";
+        }
+
+        protected void lb_type_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY txID ASC";
+        }
+
+        protected void lb_asset_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY asset DESC";
+        }
+        protected void lb_asset_asc_Click(object sender, EventArgs e)
+        {
+            string email = (string)(context.Session["email"]);
+
+            txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY asset ASC";
+        }
+
     }
 
 }

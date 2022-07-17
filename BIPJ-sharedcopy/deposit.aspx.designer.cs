@@ -24,6 +24,15 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.DropDownList ddl_cryptos;
 
         /// <summary>
+        /// btn_Generate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Generate;
+
+        /// <summary>
         /// lbl_Address control.
         /// </summary>
         /// <remarks>
@@ -58,5 +67,14 @@ namespace BIPJ_sharedcopy
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Confirm;
+
+        /// <summary>
+        /// btn_test control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_test;
     }
 }

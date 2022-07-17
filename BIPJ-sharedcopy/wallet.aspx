@@ -57,10 +57,10 @@
 
 
             <!-- Revenue Card -->
-                                <asp:DataList ID="DataList1" runat="server" DataKeyField="crypto" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns="3" RepeatDirection="Horizontal">
+                                <asp:DataList ID="DataList1" runat="server" DataKeyField="crypto" OnSelectedIndexChanged="DataList1_SelectedIndexChanged" RepeatColumns="2" RepeatDirection="Horizontal">
                       <ItemTemplate>
             <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card" style="width:300px">
+              <div class="card info-card revenue-card" style="width:450px">
 
                 <div class="filter">
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
@@ -86,12 +86,13 @@
                     <div class="ps-3" id="tokendiv">
                       <h6>
                           <asp:Label ID="lbl_bal" style="font-size:25px;" runat="server"><%# Eval("tokenamt") %>&nbsp<%# Eval("crypto") %></asp:Label>
+
                           <br />                      
 
                                                     <asp:Label ID="lbl_total"  runat="server" style="font-size:25px;">$<%# Eval("total") %></asp:Label>
 
 </h6>
-                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
+<%--                      <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>--%>
 
                     </div>
                   </div>
@@ -106,7 +107,7 @@
               <!-- HTML !-->
               <asp:Button ID="btn_Deposit" runat="server" Text="Make a deposit" style="background-color:darkblue;color:white;" OnClick="btn_Deposit_Click" />
 
-                  <asp:SqlDataSource ID="balanceDS" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [Transactions] WHERE ([email] = @email)">
+                  <asp:SqlDataSource ID="txDS" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [Transactions] WHERE ([email] = @email)">
                       <SelectParameters>
                           <asp:SessionParameter Name="email" SessionField="email" Type="String" />
                       </SelectParameters>
@@ -116,89 +117,12 @@
 
 
             <!-- Reports -->
-            <div class="col-12">
-              <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id="reportsChart"></div>
-
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'Sales',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Revenue',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Customers',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
-
-                </div>
-
-              </div>
-            </div><!-- End Reports -->
+           
 
             <!-- Recent Sales -->
-                                                      <asp:DataList ID="DataList2" runat="server" DataKeyField="txID" DataSourceID="balanceDS">
+
+             
+                                                      <asp:DataList ID="DataList2" runat="server" DataKeyField="txID" DataSourceID="txDS">
 <HeaderTemplate>
 
             <div class="col-12">
@@ -222,12 +146,14 @@
 
                   <table class="table table-borderless datatable">
                     <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Asset</th>
-                        <th scope="col">Type</th>
+                      <tr> 
+                        <th scope="col"><div style="display:inline;">#</div><div style="display:inline-block;"><p style="font-size:12px;display:inline"><asp:LinkButton ID="lb_txid_asc" runat="server" OnClick="lb_txid_asc_Click">▲</asp:LinkButton><br /><asp:LinkButton ID="lb_txid" runat="server" OnClick="lb_txid_Click">▼</asp:LinkButton></p></div>
+ </th>
+                        <th scope="col">Amount <div style="display:inline;"></div><div style="display:inline-block;"><p style="font-size:12px;display:inline"><asp:LinkButton ID="lb_amount_asc" runat="server" OnClick="lb_amount_asc_Click">▲</asp:LinkButton><br /><asp:LinkButton ID="lb_amount" runat="server" OnClick="lb_amount_Click">▼</asp:LinkButton></p></div>
                         <th scope="col">Time</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Asset<div style="display:inline;"></div><div style="display:inline-block;"><p style="font-size:12px;display:inline"><asp:LinkButton ID="lb_asset_asc" runat="server" OnClick="lb_asset_asc_Click">▲</asp:LinkButton><br /><asp:LinkButton ID="lb_asset" runat="server" OnClick="lb_asset_Click">▼</asp:LinkButton></p></div>
+                        <th scope="col">Status</th>
                       </tr>
                     </thead>
 
@@ -243,8 +169,8 @@
                         <td id="decimal"><%# Eval("amount") %></td>
                         <td><a href="#" class="text-primary"><%# Eval("time") %></a></td>
                         <td><%# Eval("type") %></td>
+                        <td><%# Eval("asset") %></td>
                         <td><span class="badge bg-success"><%# Eval("status") %></span></td>
-                                                                                               
                       </tr>
                               </ItemTemplate>
                                           <FooterTemplate>
@@ -256,7 +182,8 @@
 
               </div>
             </div></FooterTemplate>
-          </asp:DataList>   
+          </asp:DataList>                                                    
+
                   <!-- End Recent Sales -->
 
             <!-- Top Selling -->
@@ -338,7 +265,86 @@
 
         <!-- Right side columns -->
         <div class="col-lg-4">
+             <div class="col-12">
+              <div class="card">
 
+                <div class="filter">
+                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                      <h6>Filter</h6>
+                    </li>
+
+                    <li><a class="dropdown-item" href="#">Today</a></li>
+                    <li><a class="dropdown-item" href="#">This Month</a></li>
+                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                  </ul>
+                </div>
+
+                <div class="card-body">
+                  <h5 class="card-title">Reports <span>/Today</span></h5>
+
+                  <!-- Line Chart -->
+                  <div id="reportsChart"></div>
+
+                  <script>
+                      document.addEventListener("DOMContentLoaded", () => {
+                          new ApexCharts(document.querySelector("#reportsChart"), {
+                              series: [{
+                                  name: 'Sales',
+                                  data: [31, 40, 28, 51, 42, 82, 56],
+                              }, {
+                                  name: 'Revenue',
+                                  data: [11, 32, 45, 32, 34, 52, 41]
+                              }, {
+                                  name: 'Customers',
+                                  data: [15, 11, 32, 18, 9, 24, 11]
+                              }],
+                              chart: {
+                                  height: 350,
+                                  type: 'area',
+                                  toolbar: {
+                                      show: false
+                                  },
+                              },
+                              markers: {
+                                  size: 4
+                              },
+                              colors: ['#4154f1', '#2eca6a', '#ff771d'],
+                              fill: {
+                                  type: "gradient",
+                                  gradient: {
+                                      shadeIntensity: 1,
+                                      opacityFrom: 0.3,
+                                      opacityTo: 0.4,
+                                      stops: [0, 90, 100]
+                                  }
+                              },
+                              dataLabels: {
+                                  enabled: false
+                              },
+                              stroke: {
+                                  curve: 'smooth',
+                                  width: 2
+                              },
+                              xaxis: {
+                                  type: 'datetime',
+                                  categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
+                              },
+                              tooltip: {
+                                  x: {
+                                      format: 'dd/MM/yy HH:mm'
+                                  },
+                              }
+                          }).render();
+                      });
+                  </script>
+                  <!-- End Line Chart -->
+
+                </div>
+
+              </div>
+            </div><!-- End Reports -->
           <!-- Recent Activity -->
           <div class="card">
             <div class="filter">

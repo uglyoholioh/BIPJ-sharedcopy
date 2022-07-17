@@ -55,7 +55,7 @@ namespace BIPJ_sharedcopy
         public int createUser(string email, string password)
         {
             int result = 0;
-            string queryStr = "INSERT INTO Users(email,password)" + "values (@email, @password)";
+            string queryStr = "IF EXISTS (SELECT * FROM Users WHERE email = @email) BEGIN INSERT INTO Users(email,password)" + "values (@email, @password) END";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             conn.Open();

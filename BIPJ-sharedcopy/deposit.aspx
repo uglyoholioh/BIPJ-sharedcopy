@@ -54,14 +54,17 @@
                                 <asp:ListItem Value="litecoin">Litecoin (LTC)</asp:ListItem>
                                 <asp:ListItem Value="xrp">XRP</asp:ListItem>
                     </asp:DropDownList>
+                    <br />
+                    <asp:Button ID="btn_Generate" runat="server" class="btn btn-primary" Text="Generate wallet address" OnClick="btn_Generate_Click" />
 <div></div></div></div></div><div class="col-lg-4"><div class="card"><div class="card-body"><h5 class="card-title">Deposit to:</h5><asp:Label ID="lbl_Address" runat="server" Text=""></asp:Label>
 <br />
-    <p>Amount received: </p>
+<h5 class="card-title">Amount received:</h5>
     <asp:Label ID="lbl_Received" runat="server" Text="0"></asp:Label>
     <br />
     <br />
     <asp:Button ID="btn_Refresh" class="btn btn-primary" runat="server" Text="Refresh" OnClick="btn_Refresh_Click" />
     <asp:Button ID="btn_Confirm" class="btn btn-success" runat="server" Text="Confirm deposit" OnClick="btn_Confirm_Click" />
+    <asp:Button ID="btn_test" class="btn btn-success" runat="server" Text="test" OnClick="btn_test_Click" />
                                                                      </div></div></div>
             </div></section>      
 
