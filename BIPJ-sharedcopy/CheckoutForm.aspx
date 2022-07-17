@@ -58,10 +58,7 @@
         .auto-style22 {
             width: 161px;
         }
-        .auto-style23 {
-            height: 25px;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <table class="auto-style3">
@@ -202,7 +199,7 @@
         <tr>
             <td></td>
             <td class="auto-style11">
-                <asp:Button ID="btn_ConfirmPurchase" OnClick="btn_ConfirmPurchase_Click" runat="server" Text="Back" Width="75px" CausesValidation="False" />
+                <br />
             &nbsp;
                 <asp:Button ID="btn_Back" OnClick="btn_Back_Click" runat="server" Text="Confirm Purchase" Width="182px" /> &nbsp; &nbsp; 
                 &nbsp; &nbsp;&nbsp;&nbsp;
