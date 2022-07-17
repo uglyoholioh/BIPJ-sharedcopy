@@ -205,6 +205,7 @@
     <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Include="cards.html" />
+    <Content Include="CheckoutForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -243,6 +244,7 @@
     <Content Include="login.aspx" />
     <Content Include="signup.aspx" />
     <Content Include="stakingnew.aspx" />
+    <Content Include="ThankyouForm.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
     <Content Include="assets\vendor\bootstrap-icons\fonts\bootstrap-icons.woff" />
@@ -279,6 +281,7 @@
     <Content Include="assets\vendor\fontawesome-free\webfonts\fa-v4compatibility.woff2" />
     <Content Include="navbar.Master" />
     <Content Include="css\style.scss" />
+    <Content Include="NewSite.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -331,6 +334,13 @@
       <DependentUpon>Aboutold.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="CheckoutForm.aspx.cs">
+      <DependentUpon>CheckoutForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm.aspx.designer.cs">
+      <DependentUpon>CheckoutForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -405,6 +415,13 @@
     <Compile Include="navbar.Master.designer.cs">
       <DependentUpon>navbar.Master</DependentUpon>
     </Compile>
+    <Compile Include="NewSite.Master.cs">
+      <DependentUpon>NewSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewSite.Master.designer.cs">
+      <DependentUpon>NewSite.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="signup.aspx.cs">
       <DependentUpon>signup.aspx</DependentUpon>
@@ -433,6 +450,13 @@
     </Compile>
     <Compile Include="stakingnew.aspx.designer.cs">
       <DependentUpon>stakingnew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThankyouForm.aspx.cs">
+      <DependentUpon>ThankyouForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThankyouForm.aspx.designer.cs">
+      <DependentUpon>ThankyouForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="user.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

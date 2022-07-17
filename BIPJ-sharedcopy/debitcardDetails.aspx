@@ -46,7 +46,7 @@
 &nbsp;&nbsp;per month<br />
                     <br />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Btn_Add" runat="server" Text="Add to Cart" />
+                    <asp:Button ID="Btn_Add" runat="server" Text="Purchase" OnClick="Btn_Add_Click" />
                 &nbsp;&nbsp;&nbsp;
                     <asp:Button ID="btn_back" runat="server" Text="Back" OnClick="btn_back_Click" />
                     <br />

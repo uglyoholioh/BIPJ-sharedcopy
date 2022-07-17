@@ -13,7 +13,7 @@ namespace BIPJ_sharedcopy
         protected void Page_Load(object sender, EventArgs e)
         {
             Debit_Card aCard = new Debit_Card();
-            // Get Product ID from querystring
+            // Get Card ID from querystring
             string cardID = Request.QueryString["CardID"].ToString();
             card = aCard.getCard(cardID);
 
@@ -29,6 +29,11 @@ namespace BIPJ_sharedcopy
         protected void btn_back_Click(object sender, EventArgs e)
         {
             Response.Redirect("debitcard.aspx");
+        }
+
+        protected void Btn_Add_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("CheckoutForm.aspx");
         }
     }
 }

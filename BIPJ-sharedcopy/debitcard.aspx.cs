@@ -31,11 +31,11 @@ namespace BIPJ_sharedcopy
             // Get the currently selected row 
             GridViewRow row = gvCard.SelectedRow;
 
-            // Get Product ID from the selected row, which is the 
+            // Get Card ID from the selected row, which is the 
             // first row, i.e. index 0.
             string cardID = row.Cells[0].Text;
 
-            // Redirect to next page, with the Product Id added to the URL,
+            // Redirect to next page, with the Card Id added to the URL,
             // e.g. ProductDetails.aspx?ProdID=1
             Response.Redirect("debitcardDetails.aspx?cardID=" + cardID);
         }
