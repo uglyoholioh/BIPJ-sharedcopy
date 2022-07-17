@@ -235,6 +235,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="home.aspx" />
+    <Content Include="Images\chat %281%29.png" />
+    <Content Include="Images\demiswap.png" />
     <Content Include="Images\indigo.png" />
     <Content Include="Images\midnight.png" />
     <Content Include="Images\obsidian.png" />

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewSite.Master" AutoEventWireup="true" CodeBehind="CheckoutForm.aspx.cs" Inherits="BIPJ_sharedcopy.CheckoutForm" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <!DOCTYPE html> 
     <style type="text/css">
         .auto-style3 {
@@ -60,7 +60,7 @@
         }
         </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
      <table class="auto-style3">
         <tr>
             <td>Shipping to</td>

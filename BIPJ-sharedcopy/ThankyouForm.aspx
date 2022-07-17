@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/NewSite.Master" AutoEventWireup="true" CodeBehind="ThankyouForm.aspx.cs" Inherits="BIPJ_sharedcopy.ThankyouForm" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .auto-style8 {
             height: 45px;
@@ -13,8 +13,8 @@
         }
     </style>
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you for your purchase!</h2>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thank you for your purchase! Your Crypto Debit Card will arrive shortly!!</h2>
      <table class="w-100">
          <tr>
              <td class="auto-style9" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Order Invoice&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
