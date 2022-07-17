@@ -281,7 +281,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="home.aspx" />
     <Content Include="index.aspx" />
-    <Content Include="indexold.aspx" />
     <Content Include="login.aspx" />
     <Content Include="signup.aspx" />
     <Content Include="wallet.aspx" />
@@ -321,6 +320,7 @@
     <Content Include="assets\vendor\fontawesome-free\webfonts\fa-v4compatibility.woff2" />
     <Content Include="navbar.Master" />
     <Content Include="css\style.scss" />
+    <Content Include="loggedinnavbar.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -425,19 +425,19 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="indexold.aspx.cs">
-      <DependentUpon>indexold.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="indexold.aspx.designer.cs">
-      <DependentUpon>indexold.aspx</DependentUpon>
-    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loggedinnavbar.Master.cs">
+      <DependentUpon>loggedinnavbar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loggedinnavbar.Master.designer.cs">
+      <DependentUpon>loggedinnavbar.Master</DependentUpon>
     </Compile>
     <Compile Include="navbar.Master.cs">
       <DependentUpon>navbar.Master</DependentUpon>

@@ -30,7 +30,6 @@ namespace BIPJ_sharedcopy
 
             //timer.Interval = 3600000;
             //timer.Enabled = true;
-            Session["email"] = "user1@gmail.com";
         }
         private static System.Timers.Timer timer;
 
@@ -209,13 +208,6 @@ namespace BIPJ_sharedcopy
 
         }
 
-        protected void btn_test_Click(object sender, EventArgs e)
-        {
-            int result = 0;
-            Transaction transaction = new Transaction();
-            string email = (string)(context.Session["email"]);
-            result = transaction.createTransaction(DateTime.Now, "deposit", "BTC", Convert.ToDecimal(1.1), "approved", email);
-        }
     }
 }
 

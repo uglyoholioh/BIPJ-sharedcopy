@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/navbar.Master" AutoEventWireup="true" CodeBehind="deposit.aspx.cs" Inherits="BIPJ_sharedcopy.deposit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/loggedinnavbar.Master" AutoEventWireup="true" CodeBehind="deposit.aspx.cs" Inherits="BIPJ_sharedcopy.deposit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
@@ -64,7 +64,6 @@
     <br />
     <asp:Button ID="btn_Refresh" class="btn btn-primary" runat="server" Text="Refresh" OnClick="btn_Refresh_Click" />
     <asp:Button ID="btn_Confirm" class="btn btn-success" runat="server" Text="Confirm deposit" OnClick="btn_Confirm_Click" />
-    <asp:Button ID="btn_test" class="btn btn-success" runat="server" Text="test" OnClick="btn_test_Click" />
                                                                      </div></div></div>
             </div></section>      
 

@@ -19,55 +19,60 @@ namespace BIPJ_sharedcopy
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            dt.Clear();
-            dt.Columns.Add("crypto");
-            dt.Columns.Add("logo");
-            dt.Columns.Add("tokenamt");
-            dt.Columns.Add("total");
-            //session email for testing
-            Session["email"] = "user1@gmail.com";
-            string email = (string)(context.Session["email"]);
-            List<balances> balList = new List<balances>();
-            balances balobj = new balances();
-            balList = balobj.getBalancesAll(email);
-            foreach (balances bal in balList)
+            try
             {
-                DataRow dr = dt.NewRow();
-                dr["crypto"] = bal.crypto;
-                dr["logo"] = bal.crypto.ToLower();
-                dr["tokenamt"] = bal.balance.ToString("G29");
-                BTCbal = bal.balance;
-                cryptoprices dc = this.Prices(bal.crypto);
-                dr["total"] = (bal.balance * Convert.ToDecimal(dc.USD)).ToString("F");
-                dt.Rows.Add(dr);
-            }
-            DataList1.DataSource = dt;
-            DataList1.DataBind();
-            DataTable txdt = new DataTable();
-            txdt.Clear();
-            txdt.Columns.Add("txID");
-            txdt.Columns.Add("amount");
-            txdt.Columns.Add("time");
-            txdt.Columns.Add("type");
-            txdt.Columns.Add("asset");
-            txdt.Columns.Add("status");
-            List<Transaction> txlist = new List<Transaction>();
-            Transaction txobj = new Transaction();
-            txlist = txobj.getTxAll(email);
-            foreach (Transaction tx in txlist)
-            {
-                DataRow dr = txdt.NewRow();
-                dr["txID"] = tx.txID;
-                dr["amount"] = tx.amount.ToString("G29");
-                dr["time"] = tx.time.ToString();
-                dr["type"] = tx.type;
-                dr["asset"] = tx.asset;
-                dr["status"] = tx.status;
-                txdt.Rows.Add(dr);
-                
-            }
+                DataTable dt = new DataTable();
+                dt.Clear();
+                dt.Columns.Add("crypto");
+                dt.Columns.Add("logo");
+                dt.Columns.Add("tokenamt");
+                dt.Columns.Add("total");
+                //session email for testing
+                string email = (string)(context.Session["email"]);
+                List<balances> balList = new List<balances>();
+                balances balobj = new balances();
+                balList = balobj.getBalancesAll(email);
+                foreach (balances bal in balList)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["crypto"] = bal.crypto;
+                    dr["logo"] = bal.crypto.ToLower();
+                    dr["tokenamt"] = bal.balance.ToString("G29");
+                    BTCbal = bal.balance;
+                    cryptoprices dc = this.Prices(bal.crypto);
+                    dr["total"] = (bal.balance * Convert.ToDecimal(dc.USD)).ToString("F");
+                    dt.Rows.Add(dr);
+                }
+                DataList1.DataSource = dt;
+                DataList1.DataBind();
+                DataTable txdt = new DataTable();
+                txdt.Clear();
+                txdt.Columns.Add("txID");
+                txdt.Columns.Add("amount");
+                txdt.Columns.Add("time");
+                txdt.Columns.Add("type");
+                txdt.Columns.Add("asset");
+                txdt.Columns.Add("status");
+                List<Transaction> txlist = new List<Transaction>();
+                Transaction txobj = new Transaction();
+                txlist = txobj.getTxAll(email);
+                foreach (Transaction tx in txlist)
+                {
+                    DataRow dr = txdt.NewRow();
+                    dr["txID"] = tx.txID;
+                    dr["amount"] = tx.amount.ToString("G29");
+                    dr["time"] = tx.time.ToString();
+                    dr["type"] = tx.type;
+                    dr["asset"] = tx.asset;
+                    dr["status"] = tx.status;
+                    txdt.Rows.Add(dr);
 
+                }
+            }
+            catch
+            {
+                Response.Redirect("login.aspx");
+            }
 
 
 
