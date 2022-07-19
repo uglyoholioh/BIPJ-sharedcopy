@@ -16,5 +16,11 @@ namespace BIPJ_sharedcopy
             }
 
         }
+
+        protected void btn_logout_Click(object sender, EventArgs e)
+        {
+            Session.Remove("email");
+            Response.Redirect("login.aspx");
+        }
     }
 }

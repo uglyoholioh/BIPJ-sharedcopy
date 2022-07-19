@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="loggedinnavbar.Master.cs" Inherits="BIPJ_sharedcopy.loggedinnavbar" %>
 
 <!DOCTYPE html>
+    <form id="form1" runat="server">
 
 <html>
 <head runat="server">
@@ -62,8 +63,14 @@
               <li><a href="deposit.aspx">Deposit</a></li>
 
             </ul>
-          </li>
+          </li>    
+
+                      <li>
+                          <asp:Button runat="server" class="btn btn-primary" ID="btn_logout" Text="Log out" OnClick="btn_logout_Click" />
+                      </li>    
+
         </ul>
+
       </nav><!-- .navbar -->
 
     </div>
@@ -78,12 +85,11 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
  
             </asp:ContentPlaceHolder>
         </div>
-    </form>
 </body>
-</html>
+</html>    </form>
+
