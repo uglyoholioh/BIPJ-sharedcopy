@@ -49,6 +49,11 @@
                 My Cards
               </a>
             </li>
+            <li>
+              <a href="cardsadmin.aspx" class="nav-link text-black">
+                  Cards Admin
+              </a>
+            </li>
           </ul>
         </div>
       </div>

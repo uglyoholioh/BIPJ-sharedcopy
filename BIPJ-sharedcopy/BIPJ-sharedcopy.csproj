@@ -206,6 +206,7 @@
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Include="cards.aspx" />
     <Content Include="cards.html" />
+    <Content Include="cardsadmin.aspx" />
     <Content Include="CheckoutForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -345,6 +346,13 @@
     </Compile>
     <Compile Include="cards.aspx.designer.cs">
       <DependentUpon>cards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cardsadmin.aspx.cs">
+      <DependentUpon>cardsadmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cardsadmin.aspx.designer.cs">
+      <DependentUpon>cardsadmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="CheckoutForm.aspx.cs">
       <DependentUpon>CheckoutForm.aspx</DependentUpon>
