@@ -33,15 +33,15 @@ namespace BIPJ_sharedcopy
             card = aCard.getCard(cardID);
             if (cardID == "1")
             {
-                Response.Redirect("CheckoutForm.aspx");
+                Response.Redirect("CheckoutForm1.aspx");
             } 
             else if (cardID == "2")
             {
-                Response.Redirect("CheckoutForm.aspx");
+                Response.Redirect("CheckoutForm2.aspx");
             }
             else if (cardID == "3")
             {
-                Response.Redirect("CheckoutForm.aspx");
+                Response.Redirect("CheckoutForm3.aspx");
             }
            
         }
