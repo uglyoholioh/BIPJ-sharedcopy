@@ -206,11 +206,11 @@
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Include="cards.aspx" />
     <Content Include="cards.html" />
+    <Content Include="cards1.aspx" />
+    <Content Include="cards2.aspx" />
+    <Content Include="cards3.aspx" />
     <Content Include="cardsadmin.aspx" />
     <Content Include="CheckoutForm.aspx" />
-    <Content Include="CheckoutForm1.aspx" />
-    <Content Include="CheckoutForm2.aspx" />
-    <Content Include="CheckoutForm3.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -350,6 +350,27 @@
     <Compile Include="cards.aspx.designer.cs">
       <DependentUpon>cards.aspx</DependentUpon>
     </Compile>
+    <Compile Include="cards1.aspx.cs">
+      <DependentUpon>cards1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards1.aspx.designer.cs">
+      <DependentUpon>cards1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards2.aspx.cs">
+      <DependentUpon>cards2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards2.aspx.designer.cs">
+      <DependentUpon>cards2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards3.aspx.cs">
+      <DependentUpon>cards3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards3.aspx.designer.cs">
+      <DependentUpon>cards3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="cardsadmin.aspx.cs">
       <DependentUpon>cardsadmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -363,27 +384,6 @@
     </Compile>
     <Compile Include="CheckoutForm.aspx.designer.cs">
       <DependentUpon>CheckoutForm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CheckoutForm1.aspx.cs">
-      <DependentUpon>CheckoutForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckoutForm1.aspx.designer.cs">
-      <DependentUpon>CheckoutForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CheckoutForm2.aspx.cs">
-      <DependentUpon>CheckoutForm2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckoutForm2.aspx.designer.cs">
-      <DependentUpon>CheckoutForm2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CheckoutForm3.aspx.cs">
-      <DependentUpon>CheckoutForm3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CheckoutForm3.aspx.designer.cs">
-      <DependentUpon>CheckoutForm3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>

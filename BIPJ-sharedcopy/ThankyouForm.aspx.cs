@@ -29,7 +29,26 @@ namespace BIPJ_sharedcopy
 
         protected void btn_Confirm_Click(object sender, EventArgs e)
         {
-            Response.Redirect("index.aspx");
+            if (OrderSummary.Text == "$32.00")
+            {
+                Response.Redirect("cards1.aspx");
+                Response.Write("<script>alert('Your Card has been confirmed');</script>");
+            }
+            else if (OrderSummary.Text == "$41.50")
+            { 
+                Response.Redirect("cards2.aspx");
+                Response.Write("<script>alert('Your Card has been confirmed');</script>");
+            }
+            else if (OrderSummary.Text == "$56.00")
+            {
+                Response.Redirect("cards3.aspx");
+                Response.Write("<script>alert('Your Card has been confirmed');</script>");
+            }
+            else
+            {
+                Response.Redirect("index.aspx");
+                Response.Write("<script>alert('There has been an error in your confirmation, please try again');</script>");
+            }
         }
     }
 }
