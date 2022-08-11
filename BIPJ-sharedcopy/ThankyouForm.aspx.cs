@@ -16,7 +16,7 @@ namespace BIPJ_sharedcopy
             FullName.Text = (string)Session["FullName"];
             DeliveryAddress.Text = (string)Session["DeliveryAddress"];
             PostalCode.Text = (string)Session["PostalCode"];
-            OrderSummary.Text = (string)Session["TotalPrice"];
+            OrderSummary.Text = (string)Session["OrderSummary"];
 
             //Additional codes	
             ShippingTo.Text = (string)Session["ShippingTo"];

@@ -11,7 +11,6 @@ namespace BIPJ_sharedcopy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbl_TotalPrice.Text = (string)Session["TotalPrice"];
         }
         protected void btn_ConfirmPurchase_Click(object sender, EventArgs e)
         {
@@ -27,6 +26,15 @@ namespace BIPJ_sharedcopy
             {
                 PaymentMethod = rbl_PaymentMethod.SelectedItem.Text;
                 Session["PaymentMethod"] = PaymentMethod;
+
+            }
+
+            // if rbl_OrderSummary is selected, the SelectedIndex will be more than -1
+            string OrderSummary = null;
+            if (rbl_OrderSummary.SelectedIndex > -1)
+            {
+                OrderSummary = rbl_OrderSummary.SelectedItem.Text;
+                Session["OrderSummary"] = OrderSummary;
 
             }
 

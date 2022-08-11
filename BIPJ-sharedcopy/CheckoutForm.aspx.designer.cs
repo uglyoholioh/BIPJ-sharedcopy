@@ -141,13 +141,22 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_PayementMethod;
 
         /// <summary>
-        /// lbl_TotalPrice control.
+        /// rbl_OrderSummary control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_TotalPrice;
+        protected global::System.Web.UI.WebControls.RadioButtonList rbl_OrderSummary;
+
+        /// <summary>
+        /// rfv_OrderSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv_OrderSummary;
 
         /// <summary>
         /// btn_ConfirmPurchase control.

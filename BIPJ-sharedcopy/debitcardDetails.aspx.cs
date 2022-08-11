@@ -28,11 +28,26 @@ namespace BIPJ_sharedcopy
 
         protected void Btn_Add_Click(object sender, EventArgs e)
         {
-            Response.Redirect("CheckoutForm.aspx");
+            Debit_Card aCard = new Debit_Card();
+            string cardID = Request.QueryString["CardID"].ToString();
+            card = aCard.getCard(cardID);
+            if (cardID == "1")
+            {
+                Response.Redirect("CheckoutForm.aspx");
+            } 
+            else if (cardID == "2")
+            {
+                Response.Redirect("CheckoutForm.aspx");
+            }
+            else if (cardID == "3")
+            {
+                Response.Redirect("CheckoutForm.aspx");
+            }
+           
         }
 
         protected void btn_back_Click(object sender, EventArgs e)
-        {
+        { 
             Response.Redirect("debitcard.aspx");
         }
     }

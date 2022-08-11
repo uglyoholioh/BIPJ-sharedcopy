@@ -185,15 +185,19 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style8">Order Summary</td>
+            <td class="auto-style8"> Confirm Order Summary</td>
             
             <td class="auto-style12">
    
-                <asp:Label ID="lbl_TotalPrice" runat="server" Text="Label"></asp:Label>
+                <asp:RadioButtonList ID="rbl_OrderSummary" runat="server">
+                    <asp:ListItem>$32.00</asp:ListItem>
+                    <asp:ListItem>$41.50</asp:ListItem>
+                    <asp:ListItem>$56.00</asp:ListItem>
+                </asp:RadioButtonList>
 
             </td>
             
-            <td class="auto-style10">
+            <td class="auto-style10"><asp:RequiredFieldValidator ID="rfv_OrderSummary" runat="server" ControlToValidate="rbl_OrderSummary" ErrorMessage="Please confirm your Order Summary!" ForeColor="Red"></asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
