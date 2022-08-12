@@ -11,7 +11,7 @@ namespace BIPJ_sharedcopy
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lbl_deposit.Text = (string)Session["deposit"];
         }
 
        // protected void Button3_Click1(object sender, EventArgs e)
@@ -38,6 +38,11 @@ namespace BIPJ_sharedcopy
 
             }
 
+        }
+
+        protected void btn_deposit_Click(object sender, EventArgs e)
+        {
+            Session["deposit"] = tb_deposit.Text;
         }
     }
 }

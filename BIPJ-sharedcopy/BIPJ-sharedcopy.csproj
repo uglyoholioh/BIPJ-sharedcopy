@@ -281,11 +281,16 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="home.aspx" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\bitcoin.png" />
     <Content Include="Images\chat %281%29.png" />
+    <Content Include="Images\crypto.png" />
     <Content Include="Images\demiswap.png" />
     <Content Include="Images\demiswap1.png" />
+    <Content Include="Images\ethereum.png" />
     <Content Include="Images\indigo.png" />
     <Content Include="Images\midnight.png" />
+    <Content Include="Images\minus.png" />
     <Content Include="Images\obsidian.png" />
     <Content Include="index.aspx" />
     <Content Include="indexold.aspx" />
