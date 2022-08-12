@@ -85,8 +85,6 @@ namespace BIPJ_sharedcopy
                 httpWebRequest.KeepAlive = false;
                 httpWebRequest.Accept = "text/json";
                 httpWebRequest.Headers.Add("X-API-Key", "ae57c39bb8e962e6843a0f671a1244a4682e208a");
-
-
                 httpWebRequest.ContentType = "application/json";
 
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();

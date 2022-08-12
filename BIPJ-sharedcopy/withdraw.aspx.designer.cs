@@ -69,39 +69,21 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.TextBox tb_address;
 
         /// <summary>
-        /// btn_Generate control.
+        /// btn_withdraw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Generate;
+        protected global::System.Web.UI.WebControls.Button btn_withdraw;
 
         /// <summary>
-        /// lbl_Address control.
+        /// lbl_success control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Address;
-
-        /// <summary>
-        /// lbl_Received control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_Received;
-
-        /// <summary>
-        /// btn_Confirm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Confirm;
+        protected global::System.Web.UI.WebControls.Label lbl_success;
     }
 }

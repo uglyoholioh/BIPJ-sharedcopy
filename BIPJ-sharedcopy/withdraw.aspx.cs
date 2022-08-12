@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,12 +17,20 @@ namespace BIPJ_sharedcopy
     {
         HttpContext context = HttpContext.Current;
         string[] availArray = new string[] { "BTC", "DASH", "DOGE", "LTC" };
+        Dictionary<string, string> mapcrypto = new Dictionary<string, string>()
+        {
+            {"BTC","bitcoin" },
+            {"LTC","litecoin" },
+            {"DOGE","dogecoin" },
+            {"DASH","dash" }
+        };
 
         protected void Page_Load(object sender, EventArgs e)
         {
         }
         // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
-        public class data
+        // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+        public class Data
         {
             public Item item { get; set; }
         }
@@ -30,10 +39,8 @@ namespace BIPJ_sharedcopy
         {
             public string feePriority { get; set; }
             public string note { get; set; }
+            public string prepareStrategy { get; set; }
             public List<Recipient> recipients { get; set; }
-            public string totalTransactionAmount { get; set; }
-            public string transactionRequestId { get; set; }
-            public string transactionRequestStatus { get; set; }
         }
 
         public class Recipient
@@ -44,11 +51,12 @@ namespace BIPJ_sharedcopy
 
         public class Root
         {
-            public string apiVersion { get; set; }
-            public string requestId { get; set; }
             public string context { get; set; }
-            public data data { get; set; }
+            public Data data { get; set; }
         }
+
+
+
 
 
 
@@ -148,36 +156,81 @@ namespace BIPJ_sharedcopy
             }
 
         }
-        public data depositAddress()
+        public string createTransaction(string crypto)
         {
-            var address = string.Empty;
-            data addressdata = null;
+            Root root = new Root();
+            var waddress = string.Empty;
             var APIkey = "ae57c39bb8e962e6843a0f671a1244a4682e208a";
+            var result = "";
             try
             {
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://rest.cryptoapis.io/wallet-as-a-service/wallets/62cf854e5f15ac0007749f4d/"+"/testnet/transaction-requests?context=yourExampleString");
-                httpWebRequest.Method = "Post";
-                httpWebRequest.KeepAlive = false;
-                httpWebRequest.Accept = "text/json";
+                var url = "https://rest.cryptoapis.io/wallet-as-a-service/wallets/62cf854e5f15ac0007749f4d/bitcoin/testnet/transaction-requests?context=yourExampleString";
 
-                httpWebRequest.ContentType = "application/json";
+                var httpRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpRequest.Method = "POST";
 
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                httpRequest.ContentType = "application/json";
+                httpRequest.Headers["X-API-Key"] = "ae57c39bb8e962e6843a0f671a1244a4682e208a";
+                waddress = tb_address.Text.ToString();
+                Root dataroot = new Root();
+                dataroot.context = "yourExampleString";
+                Data data = new Data();
+                Item item = new Item();
+                item.feePriority = "standard";
+                item.prepareStrategy = "minimize-dust";
+                item.note = "yourAdditionalInformationhere";
+                Recipient rec = new Recipient();
+                rec.address = waddress;
+                rec.amount = tb_withdrawamt.Text.ToString();
+                rec.amount = "0.000567";
+                rec.address = "2MtzNEqm2D9jcbPJ5mW7Z3AUNwqt3afZH66";
+                item.recipients = new List<Recipient>();
+                item.recipients.Add(rec);
+                data.item = item;
+                dataroot.data = data;
+                var json = JsonConvert.SerializeObject(dataroot);
+                var idata = json;
+                System.Diagnostics.Debug.WriteLine("testing");
+                System.Diagnostics.Debug.WriteLine(json);
+                System.Diagnostics.Debug.WriteLine(idata);
+                var sdata = @"{""context"":""yourExampleString"",""data"":{""item"":{""feePriority"":""standard"",""note"":""yourAdditionalInformationhere"",""prepareStrategy"":""minimize-dust"",""recipients"":[{""address"":""2MtzNEqm2D9jcbPJ5mW7Z3AUNwqt3afZH66"",""amount"":""0.000567""}]}}}";
+                System.Diagnostics.Debug.WriteLine(sdata);
 
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-
+                using (var streamWriter = new StreamWriter(httpRequest.GetRequestStream()))
                 {
-
-                    address = streamReader.ReadToEnd();
-                    addressdata = JsonConvert.DeserializeObject<data>(address);
-
+                    streamWriter.Write(idata);
                 }
+
+
+                var httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
+
+                Console.WriteLine(httpResponse.StatusCode);
+
             }
             catch (WebException ex)
             {
-                address = ex.Message;
+                waddress = ex.Message;
             }
-            return addressdata;
+            return result;
+        }
+           
+
+        protected void btn_withdraw_Click(object sender, EventArgs e)
+        {
+            var crypto = ddl_cryptos.SelectedValue;
+            var pair = mapcrypto.First(p => p.Key == crypto);
+            string returned = String.Empty;
+            Root root = null;
+            returned = createTransaction(pair.Value);
+            System.Diagnostics.Debug.WriteLine("yea?");
+            System.Diagnostics.Debug.WriteLine(returned);
+            root = JsonConvert.DeserializeObject<Root>(returned);
+            lbl_success.Text = returned;
+
         }
     }
 }

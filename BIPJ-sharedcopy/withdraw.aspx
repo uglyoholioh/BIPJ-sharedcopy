@@ -65,16 +65,8 @@
                     <asp:TextBox ID="tb_address" runat="server"></asp:TextBox>
                     <br />
                     <br />
-                    <asp:Button ID="btn_Generate" runat="server" class="btn btn-primary" Text="Withdraw"/>
-<div></div></div></div></div><div class="col-lg-4"><div class="card"><div class="card-body"><h5 class="card-title">Deposit to:</h5><asp:Label ID="lbl_Address" runat="server" Text=""></asp:Label>
-<br />
-<h5 class="card-title">Amount received:</h5>
-    <asp:Label ID="lbl_Received" runat="server" Text="0"></asp:Label>
-    
-    <br />
-    <br />
-    <asp:Button ID="btn_Confirm" class="btn btn-success" runat="server" Text="Confirm deposit" />
-                                                                     </div></div></div>
-            </div></section>      
+                    <asp:Button ID="btn_withdraw" runat="server" class="btn btn-primary" Text="Withdraw" OnClick="btn_withdraw_Click"/>
+                    <asp:Label ID="lbl_success" runat="server"></asp:Label>
+<div></div></div></div></div></section>      
     </body>
 </asp:Content>
