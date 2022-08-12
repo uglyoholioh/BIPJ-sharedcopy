@@ -61,6 +61,8 @@
             <ul>
               <li><a href="wallet.aspx">Wallet</a></li>
               <li><a href="deposit.aspx">Deposit</a></li>
+                              <li><a href="withdraw.aspx">Withdraw</a></li>
+
 
             </ul>
           </li>    

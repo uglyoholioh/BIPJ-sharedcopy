@@ -321,6 +321,7 @@
     <Content Include="navbar.Master" />
     <Content Include="css\style.scss" />
     <Content Include="loggedinnavbar.Master" />
+    <Content Include="withdraw.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -498,6 +499,13 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="withdraw.aspx.cs">
+      <DependentUpon>withdraw.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="withdraw.aspx.designer.cs">
+      <DependentUpon>withdraw.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

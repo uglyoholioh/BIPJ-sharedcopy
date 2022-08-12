@@ -311,6 +311,10 @@ namespace BIPJ_sharedcopy
             txDS.SelectCommand = "SELECT * FROM Transactions WHERE email='" + email + "' ORDER BY asset ASC";
         }
 
+        protected void btn_Withdraw_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("withdraw.aspx");
+        }
     }
 
 }

@@ -106,6 +106,7 @@
                   </asp:DataList>
               <!-- HTML !-->
               <asp:Button ID="btn_Deposit" runat="server" Text="Make a deposit" style="margin-left:25%;" width="50%" class="btn btn-primary" OnClick="btn_Deposit_Click" />
+                            <asp:Button ID="btn_Withdraw" runat="server" Text="Withdraw" style="margin-left:25%;" width="50%" class="btn btn-secondary" OnClick="btn_Withdraw_Click" />
 
                   <asp:SqlDataSource ID="txDS" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [Transactions] WHERE ([email] = @email)">
                       <SelectParameters>
