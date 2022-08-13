@@ -75,9 +75,9 @@ namespace BIPJ_sharedcopy
             string balance = "";
 
 
-            balance = dr["balance"].ToString(); 
+            balance = dr["balance"].ToString();
             lbl_bal.Text = balance + " " + crypto;
-                
+
 
             conn.Close();
             dr.Close();
@@ -125,7 +125,7 @@ namespace BIPJ_sharedcopy
             {
 
                 balance = dr["balance"].ToString();
-                lbl_bal.Text = "You have: "+balance + " " + crypto;
+                lbl_bal.Text = "You have: " + balance + " " + crypto;
             }
             else
             {
@@ -135,7 +135,7 @@ namespace BIPJ_sharedcopy
             conn.Close();
             dr.Close();
             dr.Dispose();
-            tb_withdrawamt.Attributes.Add("max",balance);
+            tb_withdrawamt.Attributes.Add("max", balance);
             Boolean valid = false;
             foreach (string i in availArray)
             {
@@ -216,7 +216,7 @@ namespace BIPJ_sharedcopy
             }
             return result;
         }
-           
+
 
         protected void btn_withdraw_Click(object sender, EventArgs e)
         {
@@ -231,6 +231,12 @@ namespace BIPJ_sharedcopy
             if (returned != "")
             {
                 lbl_success.Text = "Withdrawal successful!";
+                balances withdrawbal = new balances();
+                int result = 0;
+                string email = (string)(context.Session["email"]);
+                result += withdrawbal.subtractBalance(email, Convert.ToDecimal(tb_withdrawamt.Text.ToString()), ddl_cryptos.SelectedValue.ToString());
+                Transaction tx = new Transaction();
+                tx.createTransaction(DateTime.Now, "Withdrawal", ddl_cryptos.SelectedValue, Convert.ToDecimal(tb_withdrawamt.Text.ToString()), "complete", email);
             }
         }
     }

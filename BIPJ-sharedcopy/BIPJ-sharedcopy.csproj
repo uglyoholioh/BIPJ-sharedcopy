@@ -282,6 +282,7 @@
     <Content Include="home.aspx" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
+    <Content Include="pooldeposit.aspx" />
     <Content Include="signup.aspx" />
     <Content Include="wallet.aspx" />
     <Content Include="WebForm1.aspx" />
@@ -446,6 +447,13 @@
     </Compile>
     <Compile Include="navbar.Master.designer.cs">
       <DependentUpon>navbar.Master</DependentUpon>
+    </Compile>
+    <Compile Include="pooldeposit.aspx.cs">
+      <DependentUpon>pooldeposit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pooldeposit.aspx.designer.cs">
+      <DependentUpon>pooldeposit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="signup.aspx.cs">

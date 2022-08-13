@@ -120,6 +120,7 @@ namespace BIPJ_sharedcopy
             public string EUR { get; set; }
 
         }
+
         public class historicalprice
         {
 

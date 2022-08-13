@@ -51,6 +51,21 @@ namespace BIPJ_sharedcopy
             return result;
         
         }
+        public int subtractBalance(string email, decimal amount, string crypto)
+        {
+            int result = 0;
+            balances updateBal = new balances(email, amount, crypto);
+            string queryStr = "UPDATE Balances set balance = balance - @amount where email = @email and crypto = @crypto";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@email", email);
+            cmd.Parameters.AddWithValue("@amount", amount);
+            cmd.Parameters.AddWithValue("@crypto", crypto);
+            conn.Open();
+            result += cmd.ExecuteNonQuery();
+            conn.Close();
+            return result;
+        }
         public List<balances> getBalancesAll(string email)
         {
             List<balances> balList = new List<balances>();
