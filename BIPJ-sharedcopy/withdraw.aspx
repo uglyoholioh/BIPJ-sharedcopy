@@ -53,7 +53,8 @@
                     <asp:Label ID="lbl_bal" runat="server"></asp:Label>
                     <br />
                     <p>Enter withdraw amount:</p>
-                    <asp:TextBox ID="tb_withdrawamt" type="number" min="0" runat="server"></asp:TextBox>
+
+                    <asp:TextBox ID="tb_withdrawamt" step="any" type="number" min="0" runat="server"></asp:TextBox>
                     <asp:SqlDataSource ID="usercryptods" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [Balances] WHERE ([email] = @email)">
                         <SelectParameters>
                             <asp:SessionParameter Name="email" SessionField="email" Type="String" />

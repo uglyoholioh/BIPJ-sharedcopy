@@ -182,8 +182,7 @@ namespace BIPJ_sharedcopy
                 Recipient rec = new Recipient();
                 rec.address = waddress;
                 rec.amount = tb_withdrawamt.Text.ToString();
-                rec.amount = "0.000567";
-                rec.address = "2MtzNEqm2D9jcbPJ5mW7Z3AUNwqt3afZH66";
+                rec.address = tb_address.Text.ToString();
                 item.recipients = new List<Recipient>();
                 item.recipients.Add(rec);
                 data.item = item;
@@ -229,8 +228,10 @@ namespace BIPJ_sharedcopy
             System.Diagnostics.Debug.WriteLine("yea?");
             System.Diagnostics.Debug.WriteLine(returned);
             root = JsonConvert.DeserializeObject<Root>(returned);
-            lbl_success.Text = returned;
-
+            if (returned != "")
+            {
+                lbl_success.Text = "Withdrawal successful!";
+            }
         }
     }
 }
