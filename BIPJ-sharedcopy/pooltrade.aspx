@@ -41,29 +41,33 @@
                 <nav><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.aspx">Home</a></li><li class="breadcrumb-item active"><a href="wallet.aspx">Wallet</a></li><li class="breadcrumb-item active">Withdraw</li></ol></nav>
         <section class="section">
             <div class="row">
-                <div class="col-lg-8"><div class="card"><div class="card-body"><h5 class="card-title">Pool ID: <asp:Label ID="lbl_poolid" runat="server" /></h5>
-            <p>Select cryptocurrency you want to withdraw:</p>
+                <div class="col-lg-3"><div class="card"><div class="card-body"><h5 class="card-title">Pool ID: <asp:Label ID="lbl_poolid" runat="server" /></h5>
+                    <h5>Pool assets:</h5>
+                    <p>
+                        <asp:Label id="lbl_assets" runat="server" /></p>
+                    <h5>Balances:                    </h5>
+                    <p>
+ <asp:Label ID="lbl_bal" runat="server" />
+                        <br /> <asp:Label id="lbl_bal2" runat="server" /></p>
+<div></div></div></div></div>
+                
+                <div class="col-lg-8"><div class="card"><div class="card-body"><h5 class="card-title">Pool trade</h5>
+                    <p class="card-text">I am trading:</p>
+                    <asp:DropDownList ID="ddl_crypto" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_crypto_SelectedIndexChanged"></asp:DropDownList>
+                    <asp:TextBox ID="tb_tradeamt" runat="server" OnTextChanged="tb_tradeamt_TextChanged"></asp:TextBox>
+                    <asp:Label ID="lbl_selectedcrypto"  runat="server" /> = <asp:Label ID="lbl_2ndcrypto" Text="?" runat="server" />
+                    
+                    <asp:Button ID="btn_convert" runat="server" class="btn btn-primary" Text="Calculate" OnClick="btn_convert_Click" />
+                        <asp:Button ID="btn_Confirm" class="btn btn-success" runat="server" Text="Make trade" OnClick="btn_Confirm_Click" />
                     <br />
-                             <asp:DropDownList class="form-select" Width="50%" ID="ddl_cryptos" runat="server" AutoPostBack="True" DataTextField="crypto" DataValueField="crypto">
+                    <p>
+                        <asp:Label ID="lbl_userbal" runat="server" /></p>
+                    <br />
+                    <p>
+                        <asp:Label ID="lbl_status" runat="server" /></p>
+                                        
 
-                    </asp:DropDownList>
-                                        <asp:Label ID="lbl_availerror" style="color:red" runat="server"></asp:Label>
-                    <br />
-
-                    <asp:Label ID="lbl_bal" runat="server"></asp:Label>
-                    <br />
-                    <p>Enter withdraw amount:</p>
-
-                    <asp:TextBox ID="tb_withdrawamt" step="any" type="number" min="0" runat="server"></asp:TextBox>
-
-                    <br />
-                    <br />
-                    <p>Enter destination wallet address:</p>
-                    <asp:TextBox ID="tb_address" runat="server"></asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:Button ID="btn_withdraw" runat="server" class="btn btn-primary" Text="Withdraw"/>
-                    <asp:Label ID="lbl_success" runat="server"></asp:Label>
-<div></div></div></div></div></section>      
+                                                        </div></div></div></div>
+                </section>      
     </body>
 </asp:Content>

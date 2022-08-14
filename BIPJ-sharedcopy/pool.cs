@@ -20,14 +20,14 @@ namespace BIPJ_sharedcopy
 
 
         public pool() { }
-        public pool(string crypto, string crypto2, decimal bal, decimal bal2, decimal fees) {
+        public pool(string crypto, string crypto2, decimal bal, decimal bal2, decimal fees, decimal ratio, decimal ratio2) {
             _crypto = crypto;
             _crypto2 = crypto2;
             _bal = bal;
             _bal2 = bal2;
             _fees = fees;
-            _ratio = bal;
-            _ratio2 = bal2;
+            _ratio = ratio;
+            _ratio2 = ratio2;
         }
         public string crypto
         {
@@ -70,9 +70,9 @@ namespace BIPJ_sharedcopy
             get { return _ratio2; }
             set { _ratio2 = value; }    
         }
-        public int makeTrade(string id,string crypto, string crypto2, decimal bal, decimal bal2)
+        public int makeTrade(string id, decimal bal, decimal bal2)
         {
-            string queryStr = "UPDATE pools set bal = @bal and bal2 = @bal2 where id = @id";
+            string queryStr = "UPDATE pools set bal = bal + @bal, bal2 = bal2 + @bal2 where id = @id";
             SqlConnection conn = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand(queryStr, conn);
             cmd.Parameters.AddWithValue("@bal", bal);
@@ -100,6 +100,35 @@ namespace BIPJ_sharedcopy
             result += cmd.ExecuteNonQuery();
             conn.Close();
             return result;
+        }
+        public pool getPool(string id)
+        {
+            pool pool = new pool();
+            string crypto,crypto2;
+            decimal bal, bal2, fees, ratio, ratio2;
+            string queryStr = "SELECT * From pools where id=@id";
+            SqlConnection conn = new SqlConnection(_connStr);
+            SqlCommand cmd = new SqlCommand(queryStr, conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            conn.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                crypto = dr["crypto"].ToString();
+                crypto2 = dr["crypto2"].ToString();
+                bal = decimal.Parse(dr["bal"].ToString());
+                bal2 = decimal.Parse(dr["bal2"].ToString());
+                fees = decimal.Parse(dr["fees"].ToString());
+                ratio = decimal.Parse(dr["ratio"].ToString());
+                ratio2 = decimal.Parse(dr["ratio2"].ToString());
+                pool datapool = new pool(crypto, crypto2, bal, bal2, fees, ratio, ratio2);
+                pool = datapool;
+            }
+            conn.Close();
+            dr.Close();
+            dr.Dispose();
+            return pool;
+
         }
     }
 }

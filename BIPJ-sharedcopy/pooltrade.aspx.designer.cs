@@ -24,22 +24,13 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.Label lbl_poolid;
 
         /// <summary>
-        /// ddl_cryptos control.
+        /// lbl_assets control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddl_cryptos;
-
-        /// <summary>
-        /// lbl_availerror control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_availerror;
+        protected global::System.Web.UI.WebControls.Label lbl_assets;
 
         /// <summary>
         /// lbl_bal control.
@@ -51,39 +42,84 @@ namespace BIPJ_sharedcopy
         protected global::System.Web.UI.WebControls.Label lbl_bal;
 
         /// <summary>
-        /// tb_withdrawamt control.
+        /// lbl_bal2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_withdrawamt;
+        protected global::System.Web.UI.WebControls.Label lbl_bal2;
 
         /// <summary>
-        /// tb_address control.
+        /// ddl_crypto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tb_address;
+        protected global::System.Web.UI.WebControls.DropDownList ddl_crypto;
 
         /// <summary>
-        /// btn_withdraw control.
+        /// tb_tradeamt control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_withdraw;
+        protected global::System.Web.UI.WebControls.TextBox tb_tradeamt;
 
         /// <summary>
-        /// lbl_success control.
+        /// lbl_selectedcrypto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl_success;
+        protected global::System.Web.UI.WebControls.Label lbl_selectedcrypto;
+
+        /// <summary>
+        /// lbl_2ndcrypto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_2ndcrypto;
+
+        /// <summary>
+        /// btn_convert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_convert;
+
+        /// <summary>
+        /// btn_Confirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Confirm;
+
+        /// <summary>
+        /// lbl_userbal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_userbal;
+
+        /// <summary>
+        /// lbl_status control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbl_status;
     }
 }

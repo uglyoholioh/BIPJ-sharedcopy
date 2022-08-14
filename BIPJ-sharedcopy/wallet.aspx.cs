@@ -81,6 +81,7 @@ namespace BIPJ_sharedcopy
                 changeText();
             }
         }
+
         public static Control FindControlRecursive(Control rootControl, string id)
         {
             if (rootControl != null)

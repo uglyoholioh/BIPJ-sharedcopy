@@ -249,6 +249,7 @@
     <Content Include="assets\vendor\purecounter\purecounter_vanilla.js" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
+    <Content Include="bitcoinpage.aspx" />
     <Content Include="cards.html" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -258,6 +259,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="createpool.aspx" />
     <Content Include="creditcard.aspx" />
+    <Content Include="CryptoList.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\fontstyle.css" />
     <Content Include="css\owl.carousel.min.css" />
@@ -377,6 +379,13 @@
       <DependentUpon>Aboutold.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="bitcoinpage.aspx.cs">
+      <DependentUpon>bitcoinpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="bitcoinpage.aspx.designer.cs">
+      <DependentUpon>bitcoinpage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -397,6 +406,13 @@
     </Compile>
     <Compile Include="creditcard.aspx.designer.cs">
       <DependentUpon>creditcard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CryptoList.aspx.cs">
+      <DependentUpon>CryptoList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CryptoList.aspx.designer.cs">
+      <DependentUpon>CryptoList.aspx</DependentUpon>
     </Compile>
     <Compile Include="debitcard.aspx.cs">
       <DependentUpon>debitcard.aspx</DependentUpon>
