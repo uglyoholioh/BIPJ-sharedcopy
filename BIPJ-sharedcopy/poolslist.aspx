@@ -40,39 +40,25 @@
     <body>
         <section class="section">
             <div class="row">
-                <div class="col-lg-16">
+                <div class="col-8 col-md-8>
 <asp:DataList ID="DataList2" runat="server" DataSourceID="SqlDataSource1">
 <HeaderTemplate>
 
-            <div class="col-16">
+            <div class="col-lg-16">
               <div class="card recent-sales overflow-auto">
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
                 <div class="card-body">
-                  <h5 class="card-title">Recent Transactions <span>| Today</span></h5>
+                  <h5 class="card-title">Liquidity Pools <span>| DemiSwap Pools</span></h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr> 
                         <th scope="col"><div style="display:inline;">#</div><div style="display:inline-block;"><p style="font-size:12px;display:inline"></p></div>
  </th>
-                        <th scope="col">Amount <div style="display:inline;"></div><div style="display:inline-block;"><p style="font-size:12px;display:inline"></p></div>
-                        <th scope="col">Time</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Asset<div style="display:inline;"></div><div style="display:inline-block;"><p style="font-size:12px;display:inline"></p></div>
-                        <th scope="col">Status</th>
+                        <th scope="col">Assets <div style="display:inline;"></div><div style="display:inline-block;"><p style="font-size:12px;display:inline"></p></div>
+                        <th scope="col">Balance</th>
+                                                  <th scope="col">Fees</th>
+
                       </tr>
                     </thead>
 
@@ -85,11 +71,13 @@
  
 
                         <th scope="row"><a href="pooltrade.aspx?id=<%# Eval("id") %>">#<%# Eval("id") %></a></th>
-                        <td id="decimal"><%# Eval("crypto") %></td>
-                        <td><a href="#" class="text-primary"><%# Eval("crypto2") %></a></td>
-                        <td><%# Eval("bal") %></td>
-                        <td><%# Eval("bal2") %></td>
-                        <td><span class="badge bg-success"><%# Eval("fees") %></span>&nbsp<a href="pooltrade.aspx?id=<%# Eval("id") %>"></a></td>
+                        <td id="decimal"><%# Eval("crypto") %><br /><%# Eval("crypto2") %></td>
+                        <td><%# Eval("bal") %><br /><%# Eval("bal2") %></td>
+
+                        <td><%# Eval("fees") %>%</td>
+                                                  <td>
+                                                      <a class="btn btn-primary" href="pooltrade.aspx?id=<%# Eval("id") %>">Trade</a>
+                                                  </td>
 
                       </tr>
                               </ItemTemplate>
@@ -102,7 +90,8 @@
 
               </div>
             </div></FooterTemplate>
-          </asp:DataList>                          
+          </asp:DataList>               
+                    <a href="createpool.aspx" class="btn btn-primary" style="width:100%">Create a pool</a>
          <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:usersContext %>" SelectCommand="SELECT * FROM [pools]"></asp:SqlDataSource>
             </div>
           </div>

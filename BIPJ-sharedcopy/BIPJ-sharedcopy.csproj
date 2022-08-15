@@ -250,7 +250,16 @@
     <Content Include="assets\vendor\swiper\swiper-bundle.min.css" />
     <Content Include="assets\vendor\swiper\swiper-bundle.min.js" />
     <Content Include="bitcoinpage.aspx" />
+    <Content Include="cards.aspx" />
     <Content Include="cards.html" />
+    <Content Include="cards1.aspx" />
+    <Content Include="cards2.aspx" />
+    <Content Include="cards3.aspx" />
+    <Content Include="cards5.aspx" />
+    <Content Include="cards6.aspx" />
+    <Content Include="CheckoutForm1.aspx" />
+    <Content Include="CheckoutForm2.aspx" />
+    <Content Include="CheckoutForm3.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -267,6 +276,7 @@
     <Content Include="css\sb-admin-2.min.css" />
     <Content Include="css\style.css" />
     <Content Include="debitcard.aspx" />
+    <Content Include="debitcardDetails.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="deposit.aspx" />
     <Content Include="favicon.ico" />
@@ -287,7 +297,12 @@
     <Content Include="login.aspx" />
     <Content Include="poolslist.aspx" />
     <Content Include="pooltrade.aspx" />
+    <Content Include="productDetails.aspx" />
+    <Content Include="products.aspx" />
     <Content Include="signup.aspx" />
+    <Content Include="Subscription.aspx" />
+    <Content Include="SubscriptionPage.aspx" />
+    <Content Include="ThankyouForm.aspx" />
     <Content Include="wallet.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
@@ -386,6 +401,69 @@
     <Compile Include="bitcoinpage.aspx.designer.cs">
       <DependentUpon>bitcoinpage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="cards.aspx.cs">
+      <DependentUpon>cards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards.aspx.designer.cs">
+      <DependentUpon>cards.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards1.aspx.cs">
+      <DependentUpon>cards1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards1.aspx.designer.cs">
+      <DependentUpon>cards1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards2.aspx.cs">
+      <DependentUpon>cards2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards2.aspx.designer.cs">
+      <DependentUpon>cards2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards3.aspx.cs">
+      <DependentUpon>cards3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards3.aspx.designer.cs">
+      <DependentUpon>cards3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards5.aspx.cs">
+      <DependentUpon>cards5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards5.aspx.designer.cs">
+      <DependentUpon>cards5.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cards6.aspx.cs">
+      <DependentUpon>cards6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cards6.aspx.designer.cs">
+      <DependentUpon>cards6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutForm1.aspx.cs">
+      <DependentUpon>CheckoutForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm1.aspx.designer.cs">
+      <DependentUpon>CheckoutForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutForm2.aspx.cs">
+      <DependentUpon>CheckoutForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm2.aspx.designer.cs">
+      <DependentUpon>CheckoutForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutForm3.aspx.cs">
+      <DependentUpon>CheckoutForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutForm3.aspx.designer.cs">
+      <DependentUpon>CheckoutForm3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -420,6 +498,14 @@
     </Compile>
     <Compile Include="debitcard.aspx.designer.cs">
       <DependentUpon>debitcard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="debitcard.cs" />
+    <Compile Include="debitcardDetails.aspx.cs">
+      <DependentUpon>debitcardDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="debitcardDetails.aspx.designer.cs">
+      <DependentUpon>debitcardDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -488,7 +574,24 @@
     <Compile Include="pooltrade.aspx.designer.cs">
       <DependentUpon>pooltrade.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="productDetails.aspx.cs">
+      <DependentUpon>productDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="productDetails.aspx.designer.cs">
+      <DependentUpon>productDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="products.aspx.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="products.aspx.designer.cs">
+      <DependentUpon>products.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShoppingCart.cs" />
+    <Compile Include="ShoppingCartItem.cs" />
     <Compile Include="signup.aspx.cs">
       <DependentUpon>signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -516,6 +619,27 @@
     </Compile>
     <Compile Include="staking.aspx.designer.cs">
       <DependentUpon>staking.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Subscription.aspx.cs">
+      <DependentUpon>Subscription.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Subscription.aspx.designer.cs">
+      <DependentUpon>Subscription.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubscriptionPage.aspx.cs">
+      <DependentUpon>SubscriptionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubscriptionPage.aspx.designer.cs">
+      <DependentUpon>SubscriptionPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ThankyouForm.aspx.cs">
+      <DependentUpon>ThankyouForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ThankyouForm.aspx.designer.cs">
+      <DependentUpon>ThankyouForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Transaction.cs" />
     <Compile Include="user.cs" />

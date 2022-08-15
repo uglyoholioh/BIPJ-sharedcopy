@@ -48,7 +48,6 @@
                     <br />
                              <asp:DropDownList class="form-select" Width="50%" ID="ddl_cryptos" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_cryptos_SelectedIndexChanged">
                                 <asp:ListItem Value="bitcoin">Bitcoin (BTC)</asp:ListItem>
-                                <asp:ListItem Value="ethereum">Ethereum (ETH)</asp:ListItem>
                                 <asp:ListItem Value="dogecoin">Dogecoin (DOGE)</asp:ListItem>
                                 <asp:ListItem Value="dash">Dash (DASH)</asp:ListItem>
                                 <asp:ListItem Value="litecoin">Litecoin (LTC)</asp:ListItem>

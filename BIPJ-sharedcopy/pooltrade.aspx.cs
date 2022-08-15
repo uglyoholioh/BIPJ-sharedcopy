@@ -67,7 +67,16 @@ namespace BIPJ_sharedcopy
             conn.Close();
             dr.Close();
             dr.Dispose();
-            tb_tradeamt.Attributes.Add("max", balance);
+            if (pool.bal < Decimal.Parse(balance))
+            {
+                tb_tradeamt.Attributes.Remove("max");
+                tb_tradeamt.Attributes.Add("max", pool.bal.ToString());
+            }
+            else
+            {
+                tb_tradeamt.Attributes.Remove("max");
+                tb_tradeamt.Attributes.Add("max", balance);
+            }
 
         }
 
@@ -90,6 +99,14 @@ namespace BIPJ_sharedcopy
             conn.Open();
             SqlDataReader dr = cmd.ExecuteReader();
             string balance = "";
+            decimal checkbal = 0;
+            if (crypto == pool.crypto) {
+                checkbal = pool.bal2;
+            }
+            else
+            {
+                checkbal = pool.bal;
+            }
             if (dr.Read())
             {
 
@@ -108,54 +125,55 @@ namespace BIPJ_sharedcopy
             conn.Close();
             dr.Close();
             dr.Dispose();
-            tb_tradeamt.Attributes.Add("max", balance);
+            if (checkbal < Decimal.Parse(balance))
+            {
+                tb_tradeamt.Attributes.Remove("max");
+                tb_tradeamt.Attributes.Add("max", checkbal.ToString());
+            }
+            else
+            {
+                tb_tradeamt.Attributes.Remove("max");
+                tb_tradeamt.Attributes.Add("max", balance);
+            }
         }
 
         protected void tb_tradeamt_TextChanged(object sender, EventArgs e)
         {
-            decimal pairvalue = 0;
-            decimal holderdecimal = 0;
-            decimal tbvalue = decimal.Parse(tb_tradeamt.Text);
-            string selectedval = string.Empty;
-            if (ddl_crypto.SelectedValue == pool.crypto)
-            {
-                holderdecimal = decimal.Parse(pool.bal.ToString());
-                pairvalue = (tbvalue / holderdecimal) * decimal.Parse(pool.bal2.ToString());
-                selectedval = pool.crypto2;
-            }
-            else
-            {
-                holderdecimal = decimal.Parse(pool.bal2.ToString());
-                pairvalue = ((tbvalue / holderdecimal) * decimal.Parse(pool.bal.ToString()));
-                selectedval = pool.crypto;
-            }
-            lbl_2ndcrypto.Text = pairvalue.ToString()+" "+selectedval;
+
         }
 
 
         protected void btn_convert_Click(object sender, EventArgs e)
         {
-            decimal pairvalue = 0;
-            decimal holderdecimal = 0;
-            decimal tbvalue = decimal.Parse(tb_tradeamt.Text);
-            string selectedval = string.Empty;
-            if (ddl_crypto.SelectedValue == pool.crypto)
+            if (tb_tradeamt.Text != "")
             {
-                holderdecimal = decimal.Parse(pool.bal.ToString());
-                pairvalue = (tbvalue / holderdecimal) * decimal.Parse(pool.bal2.ToString());
-                selectedval = pool.crypto2;
-                tradevalue = tbvalue;
-                tradevalue2 = -pairvalue;
+                decimal pairvalue = 0;
+                decimal holderdecimal = 0;
+                decimal tbvalue = decimal.Parse(tb_tradeamt.Text);
+                string selectedval = string.Empty;
+                if (ddl_crypto.SelectedValue == pool.crypto)
+                {
+                    holderdecimal = decimal.Parse(pool.bal.ToString());
+                    pairvalue = (tbvalue / holderdecimal) * decimal.Parse(pool.bal2.ToString());
+                    selectedval = pool.crypto2;
+                    tradevalue = tbvalue;
+                    tradevalue2 = -pairvalue;
+                }
+                else
+                {
+                    holderdecimal = decimal.Parse(pool.bal2.ToString());
+                    pairvalue = ((tbvalue / holderdecimal) * decimal.Parse(pool.bal.ToString()));
+                    selectedval = pool.crypto;
+                    tradevalue = -tbvalue;
+                    tradevalue2 = pairvalue;
+                }
+                lbl_2ndcrypto.Text = pairvalue.ToString() + " " + selectedval;
             }
             else
             {
-                holderdecimal = decimal.Parse(pool.bal2.ToString());
-                pairvalue = ((tbvalue / holderdecimal) * decimal.Parse(pool.bal.ToString()));
-                selectedval = pool.crypto;
-                tradevalue = -tbvalue;
-                tradevalue2 = pairvalue;
+                lbl_2ndcrypto.Text = "Enter trade amount";
+
             }
-            lbl_2ndcrypto.Text = pairvalue.ToString() + " " + selectedval;
         }
 
         protected void btn_Confirm_Click(object sender, EventArgs e)
@@ -167,6 +185,7 @@ namespace BIPJ_sharedcopy
             decimal holderdecimal = 0;
             decimal tbvalue = decimal.Parse(tb_tradeamt.Text);
             string selectedval = string.Empty;
+            Boolean valid = false;
             if (ddl_crypto.SelectedValue == pool.crypto)
             {
                 holderdecimal = decimal.Parse(pool.bal.ToString());
@@ -190,6 +209,9 @@ namespace BIPJ_sharedcopy
             int result3 = 0;
             decimal subbal = Convert.ToDecimal(tb_tradeamt.Text);
             result2 = bal.subtractBalance(email, subbal, ddl_crypto.SelectedValue);
+            Transaction tx = new Transaction();
+            int result4 = tx.createTransaction(DateTime.Now, "Pool Trade Out", ddl_crypto.SelectedValue, subbal, "approved", email);
+            int result5 = tx.createTransaction(DateTime.Now, "Pool Trade In", selectedval, pairvalue, "approved", email);
             result3 = bal.updateBalance(email, pairvalue, selectedval);
             if (result>0 && result2>0 && result3 > 0)
             {

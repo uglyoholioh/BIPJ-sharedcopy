@@ -22,7 +22,7 @@ namespace BIPJ_sharedcopy
                 {
                     result = userobj.createUser(tb_email.Text, tb_password.Text);
                 }
-                catch {lbl_Error.Text = "Account with this email already exists";};
+                catch { lbl_Error.Text = "Account with this email already exists"; };
                 if (result > 0)
                 {
                     Response.Redirect("index.aspx");

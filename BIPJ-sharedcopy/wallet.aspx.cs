@@ -37,7 +37,7 @@ namespace BIPJ_sharedcopy
                     DataRow dr = dt.NewRow();
                     dr["crypto"] = bal.crypto;
                     dr["logo"] = bal.crypto.ToLower();
-                    dr["tokenamt"] = bal.balance.ToString("G29");
+                    dr["tokenamt"] = bal.balance.ToString("G17");
                     BTCbal = bal.balance;
                     cryptoprices dc = this.Prices(bal.crypto);
                     dr["total"] = (bal.balance * Convert.ToDecimal(dc.USD)).ToString("F");

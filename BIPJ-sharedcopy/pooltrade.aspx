@@ -38,7 +38,7 @@
   ======================================================== -->
 </head>
     <body>
-                <nav><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.aspx">Home</a></li><li class="breadcrumb-item active"><a href="wallet.aspx">Wallet</a></li><li class="breadcrumb-item active">Withdraw</li></ol></nav>
+                <nav><ol class="breadcrumb"><li class="breadcrumb-item"><a href="index.aspx">Home</a></li><li class="breadcrumb-item active"><a href="poolslist.aspx">Pools List</a></li><li class="breadcrumb-item active">Pool trade</li></ol></nav>
         <section class="section">
             <div class="row">
                 <div class="col-lg-3"><div class="card"><div class="card-body"><h5 class="card-title">Pool ID: <asp:Label ID="lbl_poolid" runat="server" /></h5>
@@ -54,7 +54,7 @@
                 <div class="col-lg-8"><div class="card"><div class="card-body"><h5 class="card-title">Pool trade</h5>
                     <p class="card-text">I am trading:</p>
                     <asp:DropDownList ID="ddl_crypto" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_crypto_SelectedIndexChanged"></asp:DropDownList>
-                    <asp:TextBox ID="tb_tradeamt" runat="server" OnTextChanged="tb_tradeamt_TextChanged"></asp:TextBox>
+                    <asp:TextBox ID="tb_tradeamt" type="number" runat="server" min="0" step="any" OnTextChanged="tb_tradeamt_TextChanged"></asp:TextBox>
                     <asp:Label ID="lbl_selectedcrypto"  runat="server" /> = <asp:Label ID="lbl_2ndcrypto" Text="?" runat="server" />
                     
                     <asp:Button ID="btn_convert" runat="server" class="btn btn-primary" Text="Calculate" OnClick="btn_convert_Click" />
