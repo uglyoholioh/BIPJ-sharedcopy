@@ -27,12 +27,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <img src="assets\img\undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+          <img src="/Images/Black_And_White_Modern_Eagle_logo_-removebg-preview.png" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6 contents">
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
+                  <br />
+                  <br />
+                  <br />
               <h3>Sign In</h3>
               <p class="mb-4"></p>
             </div>
@@ -43,13 +46,13 @@
               </div>
               <div class="form-group last mb-4">
                   <asp:TextBox ID="tb_password" placeholder="Password" style="font-size:12px;" runat="server" type="password" class="form-control"></asp:TextBox>
-                
               </div>
+                                  <asp:Label style="color:red" ID="lbl_wrong" runat="server" />
+
               
               <div class="d-flex mb-5 align-items-center">
                   <span class="caption"><a href="signup.aspx"">Sign up</a></span>
 
-                <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span> 
               </div>
                 <asp:Button ID="btn_login" runat="server" class="btn btn-block btn-primary" Text="Log In" OnClick="btn_login_Click" />
 

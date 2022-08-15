@@ -293,6 +293,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="home.aspx" />
+    <Content Include="Images\Black_And_White_Modern_Eagle_logo_-removebg-preview.png" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="poolslist.aspx" />

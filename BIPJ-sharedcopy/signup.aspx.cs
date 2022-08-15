@@ -35,7 +35,7 @@ namespace BIPJ_sharedcopy
             }
             else
             {
-                Response.Write("<script>alert('Password mismatch');</script>");
+                lbl_Error.Text = "Passwords do not match";
 
             }
         }

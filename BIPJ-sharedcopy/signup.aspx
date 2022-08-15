@@ -23,12 +23,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <img src="assets\img\undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+          <img src="/Images/Black_And_White_Modern_Eagle_logo_-removebg-preview.png" alt="Image" class="img-fluid">
         </div>
         <div class="col-md-6 contents">
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
+                  <br />
+                  <br />
+                  <br />
               <h3>Sign Up</h3>
               <p class="mb-4"></p>
             </div>

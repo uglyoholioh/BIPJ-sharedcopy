@@ -30,7 +30,7 @@ namespace BIPJ_sharedcopy
             }
             else
             {
-                Response.Write("<script>alert('Invalid Username or password! Please try again.');</script>");
+                lbl_wrong.Text = "Invalid username or password";
             }
             con.Close();
 
