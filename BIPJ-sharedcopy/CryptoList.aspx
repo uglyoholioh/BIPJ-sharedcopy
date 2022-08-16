@@ -42,43 +42,10 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <span><img src="assets/img/demiswap.png" width="40" height="40" /></span><span class="d-none d-lg-block">DEMISWAP</span>
-      </a>
-      <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
-
-    <div class="search-bar">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-    </div><!-- End Search Bar -->
-
-    <nav class="header-nav ms-auto">
-      <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="CryptoList.aspx">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-          </ul>
-
-        <aside id="sidebar" class="sidebar">
-
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="CryptoList.aspx">
-          <i class="bi bi-grid"></i>
-          <span>Cryptocurrencies</span>
-        </a>
+       
           
-      </li><!-- End Dashboard Nav --></ul>
-        </aside>
+  
        
         </body>
            
@@ -97,9 +64,7 @@
            
          
       
-    </nav>
 
-  </header><!-- End Header -->
 
   <!-- ======= Sidebar ======= -->
 
@@ -131,24 +96,33 @@
            
                 <asp:DataList ID="DataList2" runat="server" DataKeyField="crypto">
                     <ItemTemplate>
+                        
+                        <a href="TokenDetails.aspx?Token=<%# Eval("crypto") %>">
                         <div class="col-xxl-4 col-md-6">
                            <div class="card info-card revenue-card" style="width:450px">
+                               <center>
                                <img src="<%# Eval("logo") %>" alt="Alternate Text" width="128" height="128" />
-                        <asp:Label ID="IconLabel" runat="server" Text='<%# Eval("logo") %>' />
                         
+                        <br />
+                                   <h2>
+                                   <b>
                         <asp:Label ID="TokenIDLabel" runat="server" Text='<%# Eval("crypto") %>' />
-              
+                        <br />
                       
                         <asp:Label ID="RankLabel" runat="server" Text='<%# Eval("price") %>' />
+                            </center>
+                               </b>
+                               </h2>
                         <br />
                         
                         <br />
                                </div>
                             </div>
-<br />
+                            <br />
+                            </a>
                     </ItemTemplate>
                 </asp:DataList>
-            </div><!-- Luna -->
+            </div>
 
 
               </div>
@@ -275,5 +249,15 @@
         
 
     </html>
+
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/chart.js/chart.min.js"></script>
+<script src="assets/vendor/echarts/echarts.min.js"></script>
+<script src="assets/vendor/quill/quill.min.js"></script>
+<script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+<script src="assets/vendor/tinymce/tinymce.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
 
 </asp:Content>

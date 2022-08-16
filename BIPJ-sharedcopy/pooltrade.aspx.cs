@@ -78,6 +78,8 @@ namespace BIPJ_sharedcopy
                 tb_tradeamt.Attributes.Add("max", balance);
             }
 
+
+
         }
 
         protected void selectedcrypto()
@@ -167,13 +169,19 @@ namespace BIPJ_sharedcopy
                     tradevalue = -tbvalue;
                     tradevalue2 = pairvalue;
                 }
-                lbl_2ndcrypto.Text = pairvalue.ToString() + " " + selectedval;
+                decimal initfee = 100;
+                decimal finalfee = (pool.fees / initfee)*pairvalue;
+                pairvalue = pairvalue - finalfee;
+                lbl_2ndcrypto.Text = pairvalue.ToString() + " " + selectedval +" with a fee of "+pool.fees.ToString()+"%: "+finalfee.ToString()+selectedval;
+
+
             }
             else
             {
                 lbl_2ndcrypto.Text = "Enter trade amount";
 
             }
+
         }
 
         protected void btn_Confirm_Click(object sender, EventArgs e)
@@ -208,10 +216,15 @@ namespace BIPJ_sharedcopy
             int result2 = 0;
             int result3 = 0;
             decimal subbal = Convert.ToDecimal(tb_tradeamt.Text);
+            decimal initfee = 100;
+            decimal finalfee = (pool.fees / initfee) * pairvalue;
+            pairvalue = pairvalue - finalfee;
             result2 = bal.subtractBalance(email, subbal, ddl_crypto.SelectedValue);
             Transaction tx = new Transaction();
             int result4 = tx.createTransaction(DateTime.Now, "Pool Trade Out", ddl_crypto.SelectedValue, subbal, "approved", email);
             int result5 = tx.createTransaction(DateTime.Now, "Pool Trade In", selectedval, pairvalue, "approved", email);
+
+
             result3 = bal.updateBalance(email, pairvalue, selectedval);
             if (result>0 && result2>0 && result3 > 0)
             {

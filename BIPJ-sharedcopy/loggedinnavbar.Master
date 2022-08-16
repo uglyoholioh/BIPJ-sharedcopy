@@ -39,9 +39,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a href="index.aspx">Home</a></li>
-          <li><a href="about.aspx">About</a></li>
-          <li><a href="staking.aspx">Staking</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="Subscription.aspx">Subscriptions</a></li>
+          <li><a href="debitcard.aspx">Cards</a></li>
                       <li class="dropdown"><a href="#"><span>Trading</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>
 
@@ -52,19 +51,11 @@
                   <li><a href="poolslist.aspx">Liquidity pools list</a></li>
                 </ul>
               </li>
+                              <li><a href="CryptoList.aspx">Cryptocurrencies list</a></li>
             </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Products</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-            <ul>
 
-              <li class="dropdown"><a href="#"><span>Cards</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
-                <ul>
-                  <li><a href="debitcard.aspx">Debit Card</a></li>
-                  <li><a href="creditcard.aspx">Credit Card</a></li>
-                </ul>
-              </li>
-            </ul>
           </li>
+
           <li><a href="contact.html">Contact</a></li>
                     <li class="dropdown"><a href="#"><span>Profile</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
             <ul>

@@ -221,6 +221,10 @@
     <Content Include="assets\vendor\bootstrap\js\bootstrap.esm.min.js" />
     <Content Include="assets\vendor\bootstrap\js\bootstrap.js" />
     <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\CHART.JS\chart.esm.js" />
+    <Content Include="assets\vendor\CHART.JS\chart.js" />
+    <Content Include="assets\vendor\CHART.JS\chart.min.js" />
+    <Content Include="assets\vendor\CHART.JS\helpers.esm.js" />
     <Content Include="assets\vendor\fontawesome-free\css\all.css" />
     <Content Include="assets\vendor\fontawesome-free\css\all.min.css" />
     <Content Include="assets\vendor\fontawesome-free\css\brands.css" />
@@ -257,6 +261,9 @@
     <Content Include="cards3.aspx" />
     <Content Include="cards5.aspx" />
     <Content Include="cards6.aspx" />
+    <Content Include="charts-apexcharts.html" />
+    <Content Include="charts-chartjs.aspx" />
+    <Content Include="charts-echarts.html" />
     <Content Include="CheckoutForm1.aspx" />
     <Content Include="CheckoutForm2.aspx" />
     <Content Include="CheckoutForm3.aspx" />
@@ -304,6 +311,8 @@
     <Content Include="Subscription.aspx" />
     <Content Include="SubscriptionPage.aspx" />
     <Content Include="ThankyouForm.aspx" />
+    <Content Include="TokenDetails.aspx" />
+    <Content Include="uniswappage.aspx" />
     <Content Include="wallet.aspx" />
     <Content Include="WebForm1.aspx" />
     <Content Include="assets\vendor\bootstrap-icons\bootstrap-icons.json" />
@@ -642,7 +651,21 @@
     <Compile Include="ThankyouForm.aspx.designer.cs">
       <DependentUpon>ThankyouForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TokenDetails.aspx.cs">
+      <DependentUpon>TokenDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TokenDetails.aspx.designer.cs">
+      <DependentUpon>TokenDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs" />
+    <Compile Include="uniswappage.aspx.cs">
+      <DependentUpon>uniswappage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="uniswappage.aspx.designer.cs">
+      <DependentUpon>uniswappage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="user.cs" />
     <Compile Include="balances.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

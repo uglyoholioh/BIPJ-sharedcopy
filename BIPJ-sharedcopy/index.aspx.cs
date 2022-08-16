@@ -10,7 +10,6 @@ namespace BIPJ_sharedcopy
         protected void Page_Load(object sender, EventArgs e)
         {
             string email = (string)(context.Session["email"]);
-            lbl_test.Text = email;
 
 
         }

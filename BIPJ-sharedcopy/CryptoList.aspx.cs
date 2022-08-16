@@ -9,15 +9,17 @@ namespace BIPJ_sharedcopy
 {
     public partial class CryptoList : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        int pagenumber = 0;
+        protected void button_add()
         {
+            pagenumber += 1;
             DataTable dt = new DataTable();
             dt.Clear();
             dt.Columns.Add("crypto");
             dt.Columns.Add("logo");
             dt.Columns.Add("price");
             var result = string.Empty;
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD");
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD&page=" + pagenumber);
             httpWebRequest.Method = "GET";
             httpWebRequest.KeepAlive = false;
             httpWebRequest.Accept = "text/json";
@@ -38,7 +40,48 @@ namespace BIPJ_sharedcopy
                 {
                     DataRow dr = dt.NewRow();
                     dr["crypto"] = bigdict["Data"][i]["CoinInfo"]["Name"].ToString();
-                    dr["logo"] = "https://www.cryptocompare.com"+bigdict["Data"][i]["CoinInfo"]["ImageUrl"].ToString();
+                    dr["logo"] = "https://www.cryptocompare.com" + bigdict["Data"][i]["CoinInfo"]["ImageUrl"].ToString();
+                    dr["price"] = bigdict["Data"][i]["RAW"]["USD"]["PRICE"].ToString();
+                    lbl_Test.Text = bigdict["Data"][i]["RAW"]["USD"]["PRICE"].ToString();
+                    dt.Rows.Add(dr);
+                }
+                placeholderobj = bigdict;
+
+            }
+            DataList2.DataSource = dt;
+            DataList2.DataBind();
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt.Clear();
+            dt.Columns.Add("crypto");
+            dt.Columns.Add("logo");
+            dt.Columns.Add("price");
+            var result = string.Empty;
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD&page=" + pagenumber);
+            httpWebRequest.Method = "GET";
+            httpWebRequest.KeepAlive = false;
+            httpWebRequest.Accept = "text/json";
+            string value = string.Empty;
+            var placeholderobj = new JObject();
+
+            httpWebRequest.ContentType = "application/json";
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+
+            {
+
+                result = streamReader.ReadToEnd();
+                var bigdict = JObject.Parse(result);
+                for (int i = 0; i < 10; i++)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["crypto"] = bigdict["Data"][i]["CoinInfo"]["Name"].ToString();
+                    dr["logo"] = "https://www.cryptocompare.com" + bigdict["Data"][i]["CoinInfo"]["ImageUrl"].ToString();
                     dr["price"] = bigdict["Data"][i]["RAW"]["USD"]["PRICE"].ToString();
                     lbl_Test.Text = bigdict["Data"][i]["RAW"]["USD"]["PRICE"].ToString();
                     dt.Rows.Add(dr);

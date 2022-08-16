@@ -50,7 +50,6 @@
  <asp:Label ID="lbl_bal" runat="server" />
                         <br /> <asp:Label id="lbl_bal2" runat="server" /></p>
 <div></div></div></div></div>
-                
                 <div class="col-lg-8"><div class="card"><div class="card-body"><h5 class="card-title">Pool trade</h5>
                     <p class="card-text">I am trading:</p>
                     <asp:DropDownList ID="ddl_crypto" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddl_crypto_SelectedIndexChanged"></asp:DropDownList>
